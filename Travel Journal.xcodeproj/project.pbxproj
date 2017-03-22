@@ -14,6 +14,7 @@
 		7A0449831E830082003365AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A0449811E830082003365AC /* LaunchScreen.storyboard */; };
 		7A04498E1E830082003365AC /* Travel_JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A04498D1E830082003365AC /* Travel_JournalTests.swift */; };
 		7A0449991E830082003365AC /* Travel_JournalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449981E830082003365AC /* Travel_JournalUITests.swift */; };
+		7A0449A71E83013F003365AC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449A61E83013F003365AC /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		7A0449941E830082003365AC /* Travel JournalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Travel JournalUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0449981E830082003365AC /* Travel_JournalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel_JournalUITests.swift; sourceTree = "<group>"; };
 		7A04499A1E830082003365AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A0449A61E83013F003365AC /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				7A04497F1E830082003365AC /* Assets.xcassets */,
 				7A0449811E830082003365AC /* LaunchScreen.storyboard */,
 				7A0449841E830082003365AC /* Info.plist */,
+				7A0449A61E83013F003365AC /* MapViewController.swift */,
 			);
 			path = "Travel Journal";
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A04497B1E830082003365AC /* ViewController.swift in Sources */,
+				7A0449A71E83013F003365AC /* MapViewController.swift in Sources */,
 				7A0449791E830082003365AC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
