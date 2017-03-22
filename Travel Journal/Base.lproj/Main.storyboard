@@ -37,25 +37,25 @@
                                 <rect key="frame" x="0.0" y="273" width="375" height="394"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="location" id="JO1-44-clH">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="location" id="Z7F-6g-oh4">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JO1-44-clH" id="VfK-7z-9XP">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z7F-6g-oh4" id="0ft-Xf-aqp">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xc3-5X-GA4">
-                                <rect key="frame" x="332" y="35" width="36" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xc3-5X-GA4">
+                                <rect key="frame" x="345" y="40" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="h6o-Mq-PTL"/>
                                     <constraint firstAttribute="width" constant="20" id="xra-AW-ttb"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="location"/>
                                 <connections>
-                                    <action selector="updateLocation:" destination="MJE-f7-sd2" eventType="touchUpInside" id="GKI-ER-5Af"/>
+                                    <action selector="updateLocation:" destination="MJE-f7-sd2" eventType="touchUpInside" id="AK7-Cy-Bsl"/>
                                 </connections>
                             </button>
                         </subviews>

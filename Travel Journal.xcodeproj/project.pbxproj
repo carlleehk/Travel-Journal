@@ -15,6 +15,9 @@
 		7A04498E1E830082003365AC /* Travel_JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A04498D1E830082003365AC /* Travel_JournalTests.swift */; };
 		7A0449991E830082003365AC /* Travel_JournalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449981E830082003365AC /* Travel_JournalUITests.swift */; };
 		7A0449A71E83013F003365AC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449A61E83013F003365AC /* MapViewController.swift */; };
+		7A0449AA1E830366003365AC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449A91E830366003365AC /* Constant.swift */; };
+		7A0449AC1E830389003365AC /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449AB1E830389003365AC /* Client.swift */; };
+		7A0449AE1E8303C6003365AC /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449AD1E8303C6003365AC /* Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		7A0449981E830082003365AC /* Travel_JournalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel_JournalUITests.swift; sourceTree = "<group>"; };
 		7A04499A1E830082003365AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A0449A61E83013F003365AC /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		7A0449A91E830366003365AC /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		7A0449AB1E830389003365AC /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		7A0449AD1E8303C6003365AC /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		7A0449771E830082003365AC /* Travel Journal */ = {
 			isa = PBXGroup;
 			children = (
+				7A0449A81E830352003365AC /* FourSquare API */,
 				7A0449781E830082003365AC /* AppDelegate.swift */,
 				7A04497A1E830082003365AC /* ViewController.swift */,
 				7A04497C1E830082003365AC /* Main.storyboard */,
@@ -126,6 +133,16 @@
 				7A04499A1E830082003365AC /* Info.plist */,
 			);
 			path = "Travel JournalUITests";
+			sourceTree = "<group>";
+		};
+		7A0449A81E830352003365AC /* FourSquare API */ = {
+			isa = PBXGroup;
+			children = (
+				7A0449A91E830366003365AC /* Constant.swift */,
+				7A0449AB1E830389003365AC /* Client.swift */,
+				7A0449AD1E8303C6003365AC /* Convenience.swift */,
+			);
+			name = "FourSquare API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,8 +283,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A04497B1E830082003365AC /* ViewController.swift in Sources */,
+				7A0449AE1E8303C6003365AC /* Convenience.swift in Sources */,
 				7A0449A71E83013F003365AC /* MapViewController.swift in Sources */,
 				7A0449791E830082003365AC /* AppDelegate.swift in Sources */,
+				7A0449AC1E830389003365AC /* Client.swift in Sources */,
+				7A0449AA1E830366003365AC /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
