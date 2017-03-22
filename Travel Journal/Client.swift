@@ -45,6 +45,7 @@ class FourSquareClient: NSObject{
             }
             
             self.convertDataWithCompletionHandler(data: data, completionHandlerForConverData: completionHandlerForGET)
+            
         }
         
         task.resume()
@@ -56,9 +57,10 @@ class FourSquareClient: NSObject{
         
         
         let parseData: Any
+        
         do{
             parseData = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-            
+
         } catch {
             print("error")
             return

@@ -17,12 +17,12 @@ extension FourSquareClient{
             if let error = error{
                 completionHandlerForGetVenue(nil, error)
             } else{
-                guard let info = results?["venues"] as? [[String: Any]] else{
-                    print(error?.localizedDescription)
+                guard let info = results?["response"]! as? [String: Any], let venues = info["venues"] as? [[String: Any]] else{
+                    print("... \(error?.localizedDescription)")
                     return
                 }
                 
-                print("the results are \(results)")
+                print("the results are \(venues)")
                 completionHandlerForGetVenue("Success", nil)
             }
             
