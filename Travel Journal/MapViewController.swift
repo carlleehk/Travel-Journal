@@ -11,19 +11,24 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
     
+    
+    @IBOutlet weak var locationName: UITableView!
     @IBOutlet weak var map: MKMapView!
     let locationManager = CLLocationManager()
     var firstRun = true
     var locValue: CLLocationCoordinate2D?
     var newPin = MKPointAnnotation()
+    var data = [venue]()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         map.delegate = self
+        locationName.dataSource = self
+        locationName.delegate = self
         
         //setUserTracking()
         
@@ -60,12 +65,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locValue = (manager.location?.coordinate)!
         locationManager.stopUpdatingLocation()
         
-        FourSquareClient.sharedInstance().getVenue(lat: locValue!.latitude, long: locValue!.longitude){(success, error) in
-            
-            if (success != nil){
-                print("something \(success)")
-            } else{
-                print("other thing")
+        performUIUpdateOnMain {
+            FourSquareClient.sharedInstance().getVenue(lat: self.locValue!.latitude, long: self.locValue!.longitude){(success, error) in
+                
+                if (success != nil){
+                    print("something \(success)")
+                    self.data = success!
+                    self.locationName.reloadData()
+                } else{
+                    print("other thing")
+                }
             }
         }
         
@@ -73,6 +82,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         map.setRegion(viewRegion, animated: true)
         newPin.coordinate = locValue!
         map.addAnnotation(newPin)
+        
         
         firstRun = false
         
@@ -89,6 +99,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
 
     }
+    
+    //TableView Set Up
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "location")!
+        let name = data[indexPath.row]
+        cell.textLabel?.text = name.name
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("there are \(data.count) datas")
+        return data.count
+    }
+    
     
     
     /*

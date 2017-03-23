@@ -19,6 +19,7 @@
 		7A0449AC1E830389003365AC /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449AB1E830389003365AC /* Client.swift */; };
 		7A0449AE1E8303C6003365AC /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449AD1E8303C6003365AC /* Convenience.swift */; };
 		7A05E3161E834D2C00989CE9 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05E3151E834D2C00989CE9 /* Data.swift */; };
+		7A05E3181E84034900989CE9 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05E3171E84034900989CE9 /* GCDBlackBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		7A0449AB1E830389003365AC /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		7A0449AD1E8303C6003365AC /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		7A05E3151E834D2C00989CE9 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		7A05E3171E84034900989CE9 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GCDBlackBox.swift; path = ../../../../../../Downloads/OnTheMap/OnTheMap/GCDBlackBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		7A0449771E830082003365AC /* Travel Journal */ = {
 			isa = PBXGroup;
 			children = (
+				7A05E3171E84034900989CE9 /* GCDBlackBox.swift */,
 				7A0449A81E830352003365AC /* FourSquare API */,
 				7A0449781E830082003365AC /* AppDelegate.swift */,
 				7A04497A1E830082003365AC /* ViewController.swift */,
@@ -285,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A05E3181E84034900989CE9 /* GCDBlackBox.swift in Sources */,
 				7A05E3161E834D2C00989CE9 /* Data.swift in Sources */,
 				7A04497B1E830082003365AC /* ViewController.swift in Sources */,
 				7A0449AE1E8303C6003365AC /* Convenience.swift in Sources */,

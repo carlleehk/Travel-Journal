@@ -41,7 +41,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z7F-6g-oh4" id="0ft-Xf-aqp">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -76,6 +76,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="locationName" destination="FKD-6R-bsh" id="KwO-L4-uoP"/>
                         <outlet property="map" destination="SJi-XA-aEW" id="GZz-z6-pvJ"/>
                     </connections>
                 </viewController>
