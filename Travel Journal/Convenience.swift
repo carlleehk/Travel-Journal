@@ -29,7 +29,6 @@ extension FourSquareClient{
                     return
                 }
                 
-                print("the results are \(venues)")
                 let data = venue.venues(results: venues)
                 venue.venuet = data
                 completionHandlerForGetVenue(data, nil)

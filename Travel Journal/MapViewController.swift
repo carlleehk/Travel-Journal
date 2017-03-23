@@ -62,9 +62,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        if !firstRun{
+        /*if !firstRun{
             map.removeAnnotation(newPin)
-        }
+        }*/
         
         locValue = (manager.location?.coordinate)!
         locationManager.stopUpdatingLocation()
@@ -74,19 +74,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             FourSquareClient.sharedInstance().getVenue(lat: self.locValue!.latitude, long: self.locValue!.longitude, searchString: nil){(success, error) in
                 
                 if (success != nil){
-                    print("something \(success)")
                     self.data = success!
                     self.locationName.reloadData()
                 } else{
-                    print("other thing")
+                    print("There is an error: \(error?.localizedDescription)")
                 }
             }
         }
         
-        let viewRegion = MKCoordinateRegionMakeWithDistance(locValue!, 1000, 1000)
+        updateMapPin(location: locValue!)
+        /*let viewRegion = MKCoordinateRegionMakeWithDistance(locValue!, 1000, 1000)
         map.setRegion(viewRegion, animated: true)
         newPin.coordinate = locValue!
-        map.addAnnotation(newPin)
+        map.addAnnotation(newPin)*/
         
         
         firstRun = false
@@ -94,6 +94,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         print("locations = \(locValue!.latitude) \(locValue!.longitude)")
     }
     
+    func updateMapPin(location: CLLocationCoordinate2D){
+        
+        if !firstRun{
+            map.removeAnnotation(newPin)
+        }
+        
+        let viewRegion = MKCoordinateRegionMakeWithDistance(location, 1000, 1000)
+        map.setRegion(viewRegion, animated: true)
+        newPin.coordinate = location
+        map.addAnnotation(newPin)
+        
+    }
     
     @IBAction func updateLocation(_ sender: Any) {
         
@@ -118,6 +130,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return data.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let info = data[indexPath.row]
+        oneVenue.name = info.name
+        oneVenue.location = info.location
+        oneVenue.contact = info.contact
+        oneVenue.url = info.url
+        oneVenue.categories = info.categories
+        let coordinate = CLLocationCoordinate2DMake(oneVenue.location?["lat"] as! CLLocationDegrees, oneVenue.location?["lng"] as! CLLocationDegrees)
+        updateMapPin(location: coordinate)
+        firstRun = false
+        /*let lat = oneVenue.location?["lat"]
+        let long = oneVenue.location?["lng"]
+        print("\(lat), \(long)")*/
+
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         let search = searchLocation.text
@@ -126,18 +155,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             FourSquareClient.sharedInstance().getVenue(lat: nil, long: nil, searchString: search){(success, error) in
                 
                 if (success != nil){
-                    print("something \(success)")
                     self.data = success!
                     self.locationName.reloadData()
                 } else{
-                    print("other thing")
+                    print("There is an error: \(error?.localizedDescription)")
                 }
             }
         }
-
-        
         return true
-    
     }
     
    //Function to setup keyboard appear location
