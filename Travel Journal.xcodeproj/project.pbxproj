@@ -18,6 +18,7 @@
 		7A0449AA1E830366003365AC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449A91E830366003365AC /* Constant.swift */; };
 		7A0449AC1E830389003365AC /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449AB1E830389003365AC /* Client.swift */; };
 		7A0449AE1E8303C6003365AC /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449AD1E8303C6003365AC /* Convenience.swift */; };
+		7A05E3161E834D2C00989CE9 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05E3151E834D2C00989CE9 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		7A0449A91E830366003365AC /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		7A0449AB1E830389003365AC /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		7A0449AD1E8303C6003365AC /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
+		7A05E3151E834D2C00989CE9 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				7A0449A91E830366003365AC /* Constant.swift */,
 				7A0449AB1E830389003365AC /* Client.swift */,
 				7A0449AD1E8303C6003365AC /* Convenience.swift */,
+				7A05E3151E834D2C00989CE9 /* Data.swift */,
 			);
 			name = "FourSquare API";
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A05E3161E834D2C00989CE9 /* Data.swift in Sources */,
 				7A04497B1E830082003365AC /* ViewController.swift in Sources */,
 				7A0449AE1E8303C6003365AC /* Convenience.swift in Sources */,
 				7A0449A71E83013F003365AC /* MapViewController.swift in Sources */,
@@ -538,6 +542,7 @@
 				7A04499F1E830082003365AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7A0449A01E830082003365AC /* Build configuration list for PBXNativeTarget "Travel JournalTests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +551,7 @@
 				7A0449A21E830082003365AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7A0449A31E830082003365AC /* Build configuration list for PBXNativeTarget "Travel JournalUITests" */ = {
 			isa = XCConfigurationList;
@@ -554,6 +560,7 @@
 				7A0449A51E830082003365AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

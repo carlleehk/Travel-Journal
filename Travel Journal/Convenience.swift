@@ -10,7 +10,7 @@ import Foundation
 
 extension FourSquareClient{
     
-    func getVenue(lat: Double, long: Double, completionHandlerForGetVenue:@escaping (_ result: String?, _ error: NSError?) -> Void){
+    func getVenue(lat: Double, long: Double, completionHandlerForGetVenue:@escaping (_ result: [venue]?, _ error: NSError?) -> Void){
         
         let parameters = [ParameterKeys.longlat: "\(lat),\(long)", ParameterKeys.limit: "50", ParameterKeys.clientID: Constant.ClientID, ParameterKeys.clientSecret: Constant.ClientSecret, ParameterKeys.version: Constant.version]
         taskForGetMethod(parameters: parameters as [String : AnyObject]) { (results, error) in
@@ -23,7 +23,9 @@ extension FourSquareClient{
                 }
                 
                 print("the results are \(venues)")
-                completionHandlerForGetVenue("Success", nil)
+                let data = venue.venues(results: venues)
+                venue.venuet = data
+                completionHandlerForGetVenue(data, nil)
             }
             
         }

@@ -63,7 +63,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         FourSquareClient.sharedInstance().getVenue(lat: locValue!.latitude, long: locValue!.longitude){(success, error) in
             
             if (success != nil){
-                print("something")
+                print("something \(success)")
             } else{
                 print("other thing")
             }
