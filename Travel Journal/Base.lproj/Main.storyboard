@@ -78,6 +78,7 @@
                     <connections>
                         <outlet property="locationName" destination="FKD-6R-bsh" id="KwO-L4-uoP"/>
                         <outlet property="map" destination="SJi-XA-aEW" id="GZz-z6-pvJ"/>
+                        <outlet property="searchLocation" destination="IXf-kW-AOx" id="eWz-9t-4fV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EG1-mw-mC7" userLabel="First Responder" sceneMemberID="firstResponder"/>

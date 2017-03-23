@@ -11,11 +11,12 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
-    
+    @IBOutlet weak var searchLocation: UITextField!
     @IBOutlet weak var locationName: UITableView!
     @IBOutlet weak var map: MKMapView!
+    
     let locationManager = CLLocationManager()
     var firstRun = true
     var locValue: CLLocationCoordinate2D?
@@ -29,12 +30,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         map.delegate = self
         locationName.dataSource = self
         locationName.delegate = self
+        searchLocation.delegate = self
         
         //setUserTracking()
-        
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         
+        //set up keyboard
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
     }
     
@@ -66,7 +70,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.stopUpdatingLocation()
         
         performUIUpdateOnMain {
-            FourSquareClient.sharedInstance().getVenue(lat: self.locValue!.latitude, long: self.locValue!.longitude){(success, error) in
+            
+            FourSquareClient.sharedInstance().getVenue(lat: self.locValue!.latitude, long: self.locValue!.longitude, searchString: nil){(success, error) in
                 
                 if (success != nil){
                     print("something \(success)")
@@ -113,7 +118,46 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return data.count
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        let search = searchLocation.text
+        performUIUpdateOnMain {
+            
+            FourSquareClient.sharedInstance().getVenue(lat: nil, long: nil, searchString: search){(success, error) in
+                
+                if (success != nil){
+                    print("something \(success)")
+                    self.data = success!
+                    self.locationName.reloadData()
+                } else{
+                    print("other thing")
+                }
+            }
+        }
+
+        
+        return true
     
+    }
+    
+   //Function to setup keyboard appear location
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
+    }
+
     
     /*
      // MARK: - Navigation

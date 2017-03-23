@@ -10,9 +10,16 @@ import Foundation
 
 extension FourSquareClient{
     
-    func getVenue(lat: Double, long: Double, completionHandlerForGetVenue:@escaping (_ result: [venue]?, _ error: NSError?) -> Void){
+    func getVenue(lat: Double?, long: Double?, searchString: String?, completionHandlerForGetVenue:@escaping (_ result: [venue]?, _ error: NSError?) -> Void){
         
-        let parameters = [ParameterKeys.longlat: "\(lat),\(long)", ParameterKeys.limit: "50", ParameterKeys.clientID: Constant.ClientID, ParameterKeys.clientSecret: Constant.ClientSecret, ParameterKeys.version: Constant.version]
+        let parameters: [String: String]
+        
+        if searchString == nil {
+            parameters = [ParameterKeys.longlat: "\(lat!),\(long!)", ParameterKeys.limit: "50", ParameterKeys.clientID: Constant.ClientID, ParameterKeys.clientSecret: Constant.ClientSecret, ParameterKeys.version: Constant.version]
+        } else{
+            parameters = [ParameterKeys.near: searchString!, ParameterKeys.limit: "50", ParameterKeys.clientID: Constant.ClientID, ParameterKeys.clientSecret: Constant.ClientSecret, ParameterKeys.version: Constant.version]
+        }
+        
         taskForGetMethod(parameters: parameters as [String : AnyObject]) { (results, error) in
             if let error = error{
                 completionHandlerForGetVenue(nil, error)
