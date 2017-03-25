@@ -76,7 +76,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HmJ-CX-iQB">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="aN1-tE-Xn6"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="aN1-tE-Xn6">
+                            <connections>
+                                <segue destination="hNN-Kd-POS" kind="show" id="L25-SH-Q1u"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="locationName" destination="FKD-6R-bsh" id="KwO-L4-uoP"/>
@@ -87,7 +91,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EG1-mw-mC7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2954" y="-638"/>
+            <point key="canvasLocation" x="3018" y="-638"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="adn-x9-dHr">
+            <objects>
+                <viewController id="hNN-Kd-POS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FVP-4e-65k"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Xg-Ni-ysl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iA4-nm-gxe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYs-hG-VXg">
+                                <rect key="frame" x="123.5" y="369.5" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="956-sD-55k"/>
+                                    <constraint firstAttribute="width" constant="128" id="YhQ-cr-cYI"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="note"/>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Th0-DU-F1m">
+                                <rect key="frame" x="20" y="169.5" width="335" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vwc-E9-Bef">
+                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="128"/>
+                                        <state key="normal" image="photo"/>
+                                        <connections>
+                                            <segue destination="VzW-lp-Bqk" kind="show" id="D6Y-Md-zzm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lg6-Go-XyZ">
+                                        <rect key="frame" x="177.5" y="0.0" width="157.5" height="128"/>
+                                        <state key="normal" title="Button" image="video"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Th0-DU-F1m" firstAttribute="centerY" secondItem="iA4-nm-gxe" secondAttribute="centerY" constant="-100" id="227-6c-Jrp"/>
+                            <constraint firstAttribute="trailing" secondItem="Th0-DU-F1m" secondAttribute="trailing" constant="20" id="Gz7-qS-8lh"/>
+                            <constraint firstItem="Th0-DU-F1m" firstAttribute="leading" secondItem="iA4-nm-gxe" secondAttribute="leading" constant="20" id="MaX-kQ-7Nn"/>
+                            <constraint firstItem="cYs-hG-VXg" firstAttribute="centerY" secondItem="iA4-nm-gxe" secondAttribute="centerY" constant="100" id="Ypj-yn-6Rz"/>
+                            <constraint firstItem="cYs-hG-VXg" firstAttribute="centerX" secondItem="iA4-nm-gxe" secondAttribute="centerX" id="tQz-kU-z89"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6GV-FP-Dgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3714" y="-638"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z2N-1u-ozp">
@@ -105,8 +160,62 @@
             </objects>
             <point key="canvasLocation" x="2311" y="-638"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="OnS-zf-eco">
+            <objects>
+                <viewController id="VzW-lp-Bqk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MvI-EX-RgQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="YW8-g6-E8P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="asK-iu-Lml">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfN-kL-TN7">
+                                <rect key="frame" x="124" y="370" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="9ML-ZL-eog"/>
+                                    <constraint firstAttribute="height" constant="128" id="k7b-7c-krV"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="FlickR"/>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KwH-Oy-QrE">
+                                <rect key="frame" x="20" y="170" width="335" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aca-8W-tDW">
+                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="128"/>
+                                        <state key="normal" image="takePhoto"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mn-ZH-88p">
+                                        <rect key="frame" x="177.5" y="0.0" width="157.5" height="128"/>
+                                        <state key="normal" title="Button" image="photoLibrary"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KwH-Oy-QrE" firstAttribute="leading" secondItem="asK-iu-Lml" secondAttribute="leading" constant="20" id="6Tw-KL-E3M"/>
+                            <constraint firstItem="MfN-kL-TN7" firstAttribute="centerX" secondItem="asK-iu-Lml" secondAttribute="centerX" id="Aen-EX-vop"/>
+                            <constraint firstAttribute="trailing" secondItem="KwH-Oy-QrE" secondAttribute="trailing" constant="20" id="c5g-Cu-JdQ"/>
+                            <constraint firstItem="KwH-Oy-QrE" firstAttribute="centerY" secondItem="asK-iu-Lml" secondAttribute="centerY" constant="-100" id="j0s-Ov-zwy"/>
+                            <constraint firstItem="MfN-kL-TN7" firstAttribute="centerY" secondItem="asK-iu-Lml" secondAttribute="centerY" constant="100" id="one-KE-jYv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HAv-Vi-v6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4465" y="-638"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="FlickR" width="128" height="128"/>
         <image name="location" width="250" height="250"/>
+        <image name="note" width="128" height="118"/>
+        <image name="photo" width="128" height="128"/>
+        <image name="photoLibrary" width="128" height="128"/>
+        <image name="takePhoto" width="128" height="128"/>
+        <image name="video" width="128" height="128"/>
     </resources>
 </document>

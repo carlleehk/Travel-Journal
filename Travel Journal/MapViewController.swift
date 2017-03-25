@@ -103,6 +103,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @IBAction func updateLocation(_ sender: Any) {
         
+        nextButton.isEnabled = false
+        
         if CLLocationManager.locationServicesEnabled(){
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -126,6 +128,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
         let info = data[indexPath.row]
         oneVenue.name = info.name
         oneVenue.location = info.location
@@ -141,6 +144,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         firstRun = false
   
 
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        nextButton.isEnabled = false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
