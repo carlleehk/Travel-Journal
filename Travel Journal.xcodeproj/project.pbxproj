@@ -19,8 +19,10 @@
 		7A0449AC1E830389003365AC /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449AB1E830389003365AC /* Client.swift */; };
 		7A0449AE1E8303C6003365AC /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449AD1E8303C6003365AC /* Convenience.swift */; };
 		7A05E3161E834D2C00989CE9 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05E3151E834D2C00989CE9 /* Data.swift */; };
-		7A05E3181E84034900989CE9 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05E3171E84034900989CE9 /* GCDBlackBox.swift */; };
 		7A5C7B271E86A0AF00819305 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C7B261E86A0AE00819305 /* PictureViewController.swift */; };
+		7A75A3011E895CFC00D518A6 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A75A3001E895CFC00D518A6 /* GCDBlackBox.swift */; };
+		7A75A3041E8967F900D518A6 /* FlickRConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A75A3031E8967F900D518A6 /* FlickRConstant.swift */; };
+		7A75A3061E896AF100D518A6 /* FlickRClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A75A3051E896AF100D518A6 /* FlickRClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +61,10 @@
 		7A0449AB1E830389003365AC /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		7A0449AD1E8303C6003365AC /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		7A05E3151E834D2C00989CE9 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		7A05E3171E84034900989CE9 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GCDBlackBox.swift; path = ../../../../../../Downloads/OnTheMap/OnTheMap/GCDBlackBox.swift; sourceTree = "<group>"; };
 		7A5C7B261E86A0AE00819305 /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
+		7A75A3001E895CFC00D518A6 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
+		7A75A3031E8967F900D518A6 /* FlickRConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickRConstant.swift; sourceTree = "<group>"; };
+		7A75A3051E896AF100D518A6 /* FlickRClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickRClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +115,8 @@
 		7A0449771E830082003365AC /* Travel Journal */ = {
 			isa = PBXGroup;
 			children = (
-				7A05E3171E84034900989CE9 /* GCDBlackBox.swift */,
+				7A75A3001E895CFC00D518A6 /* GCDBlackBox.swift */,
+				7A75A3021E89675700D518A6 /* FlickR API */,
 				7A0449A81E830352003365AC /* FourSquare API */,
 				7A0449781E830082003365AC /* AppDelegate.swift */,
 				7A04497A1E830082003365AC /* ViewController.swift */,
@@ -152,6 +157,15 @@
 				7A05E3151E834D2C00989CE9 /* Data.swift */,
 			);
 			name = "FourSquare API";
+			sourceTree = "<group>";
+		};
+		7A75A3021E89675700D518A6 /* FlickR API */ = {
+			isa = PBXGroup;
+			children = (
+				7A75A3031E8967F900D518A6 /* FlickRConstant.swift */,
+				7A75A3051E896AF100D518A6 /* FlickRClient.swift */,
+			);
+			name = "FlickR API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,10 +305,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A05E3181E84034900989CE9 /* GCDBlackBox.swift in Sources */,
+				7A75A3061E896AF100D518A6 /* FlickRClient.swift in Sources */,
 				7A05E3161E834D2C00989CE9 /* Data.swift in Sources */,
 				7A04497B1E830082003365AC /* ViewController.swift in Sources */,
 				7A0449AE1E8303C6003365AC /* Convenience.swift in Sources */,
+				7A75A3011E895CFC00D518A6 /* GCDBlackBox.swift in Sources */,
+				7A75A3041E8967F900D518A6 /* FlickRConstant.swift in Sources */,
 				7A0449A71E83013F003365AC /* MapViewController.swift in Sources */,
 				7A0449791E830082003365AC /* AppDelegate.swift in Sources */,
 				7A0449AC1E830389003365AC /* Client.swift in Sources */,
