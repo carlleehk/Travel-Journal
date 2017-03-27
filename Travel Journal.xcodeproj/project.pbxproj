@@ -20,6 +20,7 @@
 		7A0449AE1E8303C6003365AC /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449AD1E8303C6003365AC /* Convenience.swift */; };
 		7A05E3161E834D2C00989CE9 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05E3151E834D2C00989CE9 /* Data.swift */; };
 		7A05E3181E84034900989CE9 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05E3171E84034900989CE9 /* GCDBlackBox.swift */; };
+		7A5C7B271E86A0AF00819305 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C7B261E86A0AE00819305 /* PictureViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		7A0449AD1E8303C6003365AC /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		7A05E3151E834D2C00989CE9 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		7A05E3171E84034900989CE9 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GCDBlackBox.swift; path = ../../../../../../Downloads/OnTheMap/OnTheMap/GCDBlackBox.swift; sourceTree = "<group>"; };
+		7A5C7B261E86A0AE00819305 /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				7A0449811E830082003365AC /* LaunchScreen.storyboard */,
 				7A0449841E830082003365AC /* Info.plist */,
 				7A0449A61E83013F003365AC /* MapViewController.swift */,
+				7A5C7B261E86A0AE00819305 /* PictureViewController.swift */,
 			);
 			path = "Travel Journal";
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				7A0449A71E83013F003365AC /* MapViewController.swift in Sources */,
 				7A0449791E830082003365AC /* AppDelegate.swift in Sources */,
 				7A0449AC1E830389003365AC /* Client.swift in Sources */,
+				7A5C7B271E86A0AF00819305 /* PictureViewController.swift in Sources */,
 				7A0449AA1E830366003365AC /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

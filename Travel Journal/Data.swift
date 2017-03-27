@@ -6,6 +6,17 @@
 //  Copyright © 2017 Carl Lee. All rights reserved.
 //
 
+struct oneVenue {
+    static var name: String?
+    static var contact: Dictionary<String, Any>?
+    static var location: Dictionary<String, Any>?
+    static var categories: Dictionary<String, Any>?
+    static var url: String?
+    
+    //static var oneVenue: [oneVenue] = []
+
+}
+
 struct venue{
     
     var name: String?

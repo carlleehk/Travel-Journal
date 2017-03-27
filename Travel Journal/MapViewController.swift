@@ -13,6 +13,7 @@ import CoreLocation
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var searchLocation: UITextField!
     @IBOutlet weak var locationName: UITableView!
     @IBOutlet weak var map: MKMapView!
@@ -26,6 +27,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        nextButton.isEnabled = false
         
         map.delegate = self
         locationName.dataSource = self
@@ -62,10 +65,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        if !firstRun{
-            map.removeAnnotation(newPin)
-        }
-        
         locValue = (manager.location?.coordinate)!
         locationManager.stopUpdatingLocation()
         
@@ -74,28 +73,37 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             FourSquareClient.sharedInstance().getVenue(lat: self.locValue!.latitude, long: self.locValue!.longitude, searchString: nil){(success, error) in
                 
                 if (success != nil){
-                    print("something \(success)")
                     self.data = success!
                     self.locationName.reloadData()
                 } else{
-                    print("other thing")
+                    print("There is an error: \(error?.localizedDescription)")
                 }
             }
         }
         
-        let viewRegion = MKCoordinateRegionMakeWithDistance(locValue!, 1000, 1000)
-        map.setRegion(viewRegion, animated: true)
-        newPin.coordinate = locValue!
-        map.addAnnotation(newPin)
-        
+        updateMapPin(location: locValue!)
         
         firstRun = false
         
         print("locations = \(locValue!.latitude) \(locValue!.longitude)")
     }
     
+    func updateMapPin(location: CLLocationCoordinate2D){
+        
+        if !firstRun{
+            map.removeAnnotation(newPin)
+        }
+        
+        let viewRegion = MKCoordinateRegionMakeWithDistance(location, 1000, 1000)
+        map.setRegion(viewRegion, animated: true)
+        newPin.coordinate = location
+        map.addAnnotation(newPin)
+        
+    }
     
     @IBAction func updateLocation(_ sender: Any) {
+        
+        nextButton.isEnabled = false
         
         if CLLocationManager.locationServicesEnabled(){
             locationManager.delegate = self
@@ -118,32 +126,60 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return data.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        let info = data[indexPath.row]
+        oneVenue.name = info.name
+        oneVenue.location = info.location
+        oneVenue.contact = info.contact
+        oneVenue.url = info.url
+        oneVenue.categories = info.categories
+        
+        let coordinate = CLLocationCoordinate2DMake(oneVenue.location?["lat"] as! CLLocationDegrees, oneVenue.location?["lng"] as! CLLocationDegrees)
+        updateMapPin(location: coordinate)
+        
+        nextButton.isEnabled = true
+        
+        firstRun = false
+  
+
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        nextButton.isEnabled = false
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         let search = searchLocation.text
+        textField.resignFirstResponder()
+        
         performUIUpdateOnMain {
             
             FourSquareClient.sharedInstance().getVenue(lat: nil, long: nil, searchString: search){(success, error) in
                 
                 if (success != nil){
-                    print("something \(success)")
                     self.data = success!
                     self.locationName.reloadData()
                 } else{
-                    print("other thing")
+                    
+                    let alertController = UIAlertController(title: "Error", message: "Location not found, please retype another location for searching", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alertController, animated: true, completion: nil)
+                    textField.text = ""
+                    
                 }
             }
         }
-
-        
         return true
-    
     }
     
    //Function to setup keyboard appear location
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y += 100
                 self.view.frame.origin.y -= keyboardSize.height
             }
         }
@@ -153,6 +189,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y -= 100
                 self.view.frame.origin.y += keyboardSize.height
             }
         }
