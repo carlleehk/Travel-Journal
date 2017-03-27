@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "360D33123F86658409E0C01102CA6508C0E87A9B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "360D33123F86658409E0C01102CA6508C0E87A9B" : 9223372036854775807,
+    "58A0F0449D297C24697ED42AD92E5602D5501808" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "131879A8-BBA8-4949-B596-B50DD2D06192",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "360D33123F86658409E0C01102CA6508C0E87A9B" : "Travel%20Journal\/",
+    "58A0F0449D297C24697ED42AD92E5602D5501808" : "..\/..\/..\/..\/Downloads\/OnTheMap"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Travel Journal",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Travel Journal.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/carlleehk\/Travel-Journal.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "360D33123F86658409E0C01102CA6508C0E87A9B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/carlleehk\/OnTheMap.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "58A0F0449D297C24697ED42AD92E5602D5501808"
+    }
+  ]
+}

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PictureViewController: UIViewController, UIImagePickerControllerDelegate {
+class PictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +21,19 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func pickingPicture(sourceType: UIImagePickerControllerSourceType){
+        let image = UIImagePickerController()
+        image.sourceType = sourceType
+        image.delegate = self
+        present(image, animated: true, completion: nil)
+    }
+    
     @IBAction func takePicture(_ sender: Any) {
-        
+        pickingPicture(sourceType: UIImagePickerControllerSourceType.camera)
     }
 
     @IBAction func Album(_ sender: Any) {
+        pickingPicture(sourceType: UIImagePickerControllerSourceType.photoLibrary)
     }
     
     @IBAction func FlickR(_ sender: Any) {
