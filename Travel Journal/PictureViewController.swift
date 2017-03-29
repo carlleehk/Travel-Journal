@@ -37,6 +37,8 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func FlickR(_ sender: Any) {
+        let control = storyboard?.instantiateViewController(withIdentifier: "pictureCollection") as! PictureViewCollectionViewController
+        present(control, animated: true, completion: nil)
     }
     
     /*

@@ -112,6 +112,9 @@
                                     <constraint firstAttribute="width" constant="128" id="YhQ-cr-cYI"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="note"/>
+                                <connections>
+                                    <segue destination="Ypa-Kh-xwC" kind="show" id="r4m-ho-No2"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Th0-DU-F1m">
                                 <rect key="frame" x="20" y="169.5" width="335" height="128"/>
@@ -143,6 +146,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6GV-FP-Dgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3714" y="-638"/>
+        </scene>
+        <!--Text Editor View Controller-->
+        <scene sceneID="lF4-PG-6Rq">
+            <objects>
+                <viewController id="Ypa-Kh-xwC" customClass="TextEditorViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U77-jf-SXp"/>
+                        <viewControllerLayoutGuide type="bottom" id="Baa-i3-2ZE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="q9O-f7-QmP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter your journal here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zQA-HA-6WQ">
+                                <rect key="frame" x="16" y="89" width="343" height="558"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Done" id="pYd-Cn-Mvs"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="ty6-wk-iXJ">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="nxI-Ng-a27">
+                            <connections>
+                                <action selector="Done:" destination="Ypa-Kh-xwC" id="hdy-df-bZV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="textField" destination="zQA-HA-6WQ" id="XAc-b3-GhO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xEu-iZ-yLJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4464.8000000000002" y="108.39580209895054"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z2N-1u-ozp">
@@ -181,6 +224,7 @@
                                 <state key="normal" title="Button" image="FlickR"/>
                                 <connections>
                                     <action selector="FlickR:" destination="VzW-lp-Bqk" eventType="touchUpInside" id="ewx-vc-wtO"/>
+                                    <segue destination="o00-l9-KEf" kind="show" id="Zsj-pp-OVq"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KwH-Oy-QrE">
@@ -215,7 +259,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HAv-Vi-v6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4465" y="-638"/>
+            <point key="canvasLocation" x="4465" y="-1084"/>
+        </scene>
+        <!--Picture View Collection View Controller-->
+        <scene sceneID="veY-Vg-LlF">
+            <objects>
+                <collectionViewController storyboardIdentifier="pictureCollection" id="o00-l9-KEf" customClass="PictureViewCollectionViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="otq-TT-oz1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qzx-mW-RSq">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pictureCell" id="Y0B-Lc-gyz" customClass="FlickRCollectionViewCell" customModule="Travel_Journal" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vxX-Ns-9c3">
+                                            <rect key="frame" x="-95" y="-29" width="240" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="FlickRImage" destination="vxX-Ns-9c3" id="2hT-3W-zPm"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="o00-l9-KEf" id="3Wh-EJ-l8f"/>
+                            <outlet property="delegate" destination="o00-l9-KEf" id="4Vq-li-fnZ"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="0pR-CS-ay9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="8WL-MY-enC"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="FlickRFlow" destination="qzx-mW-RSq" id="kpx-lU-dK7"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qiz-GE-dud" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5348" y="-1084"/>
         </scene>
     </scenes>
     <resources>
