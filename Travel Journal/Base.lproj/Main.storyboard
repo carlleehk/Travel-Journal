@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Lck-K7-aJR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Lck-K7-aJR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,7 +41,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z7F-6g-oh4" id="0ft-Xf-aqp">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -268,7 +268,7 @@
         <scene sceneID="veY-Vg-LlF">
             <objects>
                 <collectionViewController storyboardIdentifier="pictureCollection" id="o00-l9-KEf" customClass="PictureViewCollectionViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="otq-TT-oz1">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="otq-TT-oz1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -313,10 +313,10 @@
             </objects>
             <point key="canvasLocation" x="5348" y="-1084"/>
         </scene>
-        <!--View Controller-->
+        <!--Video View Controller-->
         <scene sceneID="t9q-ew-Zar">
             <objects>
-                <viewController id="44v-zO-AgM" sceneMemberID="viewController">
+                <viewController id="44v-zO-AgM" customClass="VideoViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z9C-w6-pCG"/>
                         <viewControllerLayoutGuide type="bottom" id="BBU-vc-oes"/>
@@ -331,10 +331,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HY-2i-jrr">
                                         <rect key="frame" x="0.0" y="0.0" width="157.5" height="128"/>
                                         <state key="normal" image="camera"/>
+                                        <connections>
+                                            <action selector="takingVideo:" destination="44v-zO-AgM" eventType="touchUpInside" id="Q5o-0i-gB6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKK-8a-l3q">
                                         <rect key="frame" x="177.5" y="0.0" width="157.5" height="128"/>
                                         <state key="normal" title="Button" image="videoLibrary"/>
+                                        <connections>
+                                            <action selector="videoLibrary:" destination="44v-zO-AgM" eventType="touchUpInside" id="phn-zx-dav"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

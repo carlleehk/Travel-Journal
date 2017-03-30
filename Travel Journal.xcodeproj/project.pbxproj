@@ -27,6 +27,7 @@
 		7ABFEB531E89B6670000E1B7 /* PictureViewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABFEB521E89B6670000E1B7 /* PictureViewCollectionViewController.swift */; };
 		7ABFEB551E89D8FF0000E1B7 /* FlickRCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABFEB541E89D8FF0000E1B7 /* FlickRCollectionViewCell.swift */; };
 		7ABFEB571E8AE0560000E1B7 /* TextEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABFEB561E8AE0560000E1B7 /* TextEditorViewController.swift */; };
+		7AE56BD51E8D514300E538A5 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE56BD41E8D514300E538A5 /* VideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		7ABFEB521E89B6670000E1B7 /* PictureViewCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewCollectionViewController.swift; sourceTree = "<group>"; };
 		7ABFEB541E89D8FF0000E1B7 /* FlickRCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickRCollectionViewCell.swift; sourceTree = "<group>"; };
 		7ABFEB561E8AE0560000E1B7 /* TextEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditorViewController.swift; sourceTree = "<group>"; };
+		7AE56BD41E8D514300E538A5 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				7ABFEB521E89B6670000E1B7 /* PictureViewCollectionViewController.swift */,
 				7ABFEB541E89D8FF0000E1B7 /* FlickRCollectionViewCell.swift */,
 				7ABFEB561E8AE0560000E1B7 /* TextEditorViewController.swift */,
+				7AE56BD41E8D514300E538A5 /* VideoViewController.swift */,
 			);
 			path = "Travel Journal";
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				7A0449A71E83013F003365AC /* MapViewController.swift in Sources */,
 				7A0449791E830082003365AC /* AppDelegate.swift in Sources */,
 				7A0449AC1E830389003365AC /* Client.swift in Sources */,
+				7AE56BD51E8D514300E538A5 /* VideoViewController.swift in Sources */,
 				7A5C7B271E86A0AF00819305 /* PictureViewController.swift in Sources */,
 				7ABFEB531E89B6670000E1B7 /* PictureViewCollectionViewController.swift in Sources */,
 				7ABFEB511E89B2E80000E1B7 /* FlickRConvenience.swift in Sources */,
