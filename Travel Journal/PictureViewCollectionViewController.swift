@@ -86,7 +86,7 @@ class PictureViewCollectionViewController: UIViewController, UICollectionViewDel
                     self.imageAddress.append(imageURLString!)
                 }
             } else{
-                print("some error: \(error?.localizedDescription)")
+                print("some error: \(String(describing: error?.localizedDescription))")
             }
             self.collectionView!.reloadData()
         }
