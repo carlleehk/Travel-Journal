@@ -11,4 +11,5 @@ import UIKit
 class FlickRCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var FlickRImage: UIImageView!
+    
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Lck-K7-aJR">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Lck-K7-aJR">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,37 +18,37 @@
                         <viewControllerLayoutGuide type="bottom" id="2Di-fh-yMy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="evb-7g-NZB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJi-XA-aEW">
-                                <rect key="frame" x="0.0" y="64" width="375" height="199"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="199"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="199" id="m5x-je-yq4"/>
                                 </constraints>
                             </mapView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter location to search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IXf-kW-AOx">
-                                <rect key="frame" x="0.0" y="279" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="279" width="414" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FKD-6R-bsh">
-                                <rect key="frame" x="0.0" y="317" width="375" height="350"/>
+                                <rect key="frame" x="0.0" y="317" width="414" height="419"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="location" id="Z7F-6g-oh4">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z7F-6g-oh4" id="0ft-Xf-aqp">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xc3-5X-GA4">
-                                <rect key="frame" x="345" y="84" width="20" height="20"/>
+                                <rect key="frame" x="384" y="84" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="h6o-Mq-PTL"/>
                                     <constraint firstAttribute="width" constant="20" id="xra-AW-ttb"/>
@@ -102,35 +102,35 @@
                         <viewControllerLayoutGuide type="bottom" id="3Xg-Ni-ysl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="iA4-nm-gxe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYs-hG-VXg">
-                                <rect key="frame" x="123.5" y="369.5" width="128" height="128"/>
+                                <rect key="frame" x="143" y="404" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="956-sD-55k"/>
                                     <constraint firstAttribute="width" constant="128" id="YhQ-cr-cYI"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="note"/>
                                 <connections>
-                                    <segue destination="Ypa-Kh-xwC" kind="show" id="r4m-ho-No2"/>
+                                    <segue destination="Ypa-Kh-xwC" kind="presentation" id="r4m-ho-No2"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Th0-DU-F1m">
-                                <rect key="frame" x="20" y="169.5" width="335" height="128"/>
+                                <rect key="frame" x="20" y="204" width="374" height="128"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vwc-E9-Bef">
-                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="128"/>
                                         <state key="normal" image="photo"/>
                                         <connections>
-                                            <segue destination="VzW-lp-Bqk" kind="show" id="D6Y-Md-zzm"/>
+                                            <segue destination="VzW-lp-Bqk" kind="presentation" id="D6Y-Md-zzm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lg6-Go-XyZ">
-                                        <rect key="frame" x="177.5" y="0.0" width="157.5" height="128"/>
+                                        <rect key="frame" x="197" y="0.0" width="177" height="128"/>
                                         <state key="normal" title="Button" image="video"/>
                                         <connections>
-                                            <segue destination="44v-zO-AgM" kind="show" id="oZr-Wr-3Ae"/>
+                                            <segue destination="44v-zO-AgM" kind="presentation" id="oZr-Wr-3Ae"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -159,36 +159,47 @@
                         <viewControllerLayoutGuide type="bottom" id="Baa-i3-2ZE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="q9O-f7-QmP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter your journal here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zQA-HA-6WQ">
-                                <rect key="frame" x="16" y="89" width="343" height="558"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter your journal here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zQA-HA-6WQ">
+                                <rect key="frame" x="10" y="64" width="394" height="372"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLT-fc-Qcl">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <items>
+                                    <navigationItem id="f0l-hA-RHw">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Bln-aU-2sK">
+                                            <connections>
+                                                <action selector="Done:" destination="Ypa-Kh-xwC" id="oKG-K1-iiS"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zQA-HA-6WQ" firstAttribute="top" secondItem="pLT-fc-Qcl" secondAttribute="bottom" id="0oR-Sr-xad"/>
+                            <constraint firstItem="pLT-fc-Qcl" firstAttribute="leading" secondItem="q9O-f7-QmP" secondAttribute="leading" id="66f-yi-fmh"/>
+                            <constraint firstItem="zQA-HA-6WQ" firstAttribute="leading" secondItem="q9O-f7-QmP" secondAttribute="leading" constant="10" id="7Yb-Co-CL6"/>
+                            <constraint firstAttribute="trailing" secondItem="zQA-HA-6WQ" secondAttribute="trailing" constant="10" id="8sf-tW-Kne"/>
+                            <constraint firstAttribute="trailing" secondItem="pLT-fc-Qcl" secondAttribute="trailing" id="DUt-ua-NiO"/>
+                            <constraint firstItem="pLT-fc-Qcl" firstAttribute="top" secondItem="U77-jf-SXp" secondAttribute="bottom" id="NzH-e6-cPo"/>
+                            <constraint firstItem="zQA-HA-6WQ" firstAttribute="top" secondItem="pLT-fc-Qcl" secondAttribute="bottom" id="UzS-Lw-p6A"/>
+                            <constraint firstItem="Baa-i3-2ZE" firstAttribute="top" secondItem="zQA-HA-6WQ" secondAttribute="bottom" constant="300" id="aUO-A2-cBl"/>
+                        </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Done" id="pYd-Cn-Mvs"/>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" id="ty6-wk-iXJ">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="nxI-Ng-a27">
-                            <connections>
-                                <action selector="Done:" destination="Ypa-Kh-xwC" id="hdy-df-bZV"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <toolbarItems/>
                     <connections>
                         <outlet property="textField" destination="zQA-HA-6WQ" id="XAc-b3-GhO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xEu-iZ-yLJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4465" y="478"/>
+            <point key="canvasLocation" x="4463.768115942029" y="476.9021739130435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z2N-1u-ozp">
@@ -215,11 +226,11 @@
                         <viewControllerLayoutGuide type="bottom" id="YW8-g6-E8P"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="asK-iu-Lml">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfN-kL-TN7">
-                                <rect key="frame" x="124" y="370" width="128" height="128"/>
+                                <rect key="frame" x="143" y="404" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="9ML-ZL-eog"/>
                                     <constraint firstAttribute="height" constant="128" id="k7b-7c-krV"/>
@@ -227,21 +238,20 @@
                                 <state key="normal" title="Button" image="FlickR"/>
                                 <connections>
                                     <action selector="FlickR:" destination="VzW-lp-Bqk" eventType="touchUpInside" id="ewx-vc-wtO"/>
-                                    <segue destination="o00-l9-KEf" kind="show" id="Zsj-pp-OVq"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KwH-Oy-QrE">
-                                <rect key="frame" x="20" y="170" width="335" height="128"/>
+                                <rect key="frame" x="20" y="196" width="374" height="144"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aca-8W-tDW">
-                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="144"/>
                                         <state key="normal" image="takePhoto"/>
                                         <connections>
                                             <action selector="takePicture:" destination="VzW-lp-Bqk" eventType="touchUpInside" id="2Yb-wS-RLX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mn-ZH-88p">
-                                        <rect key="frame" x="177.5" y="0.0" width="157.5" height="128"/>
+                                        <rect key="frame" x="197" y="0.0" width="177" height="144"/>
                                         <state key="normal" title="Button" image="photoLibrary"/>
                                         <connections>
                                             <action selector="Album:" destination="VzW-lp-Bqk" eventType="touchUpInside" id="muX-HF-bL5"/>
@@ -249,13 +259,25 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nc6-ai-7tJ">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <items>
+                                    <navigationItem id="84o-Mc-tkr">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="IQC-Bi-V4K"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="KwH-Oy-QrE" firstAttribute="top" secondItem="nc6-ai-7tJ" secondAttribute="bottom" constant="132" id="30i-m9-ofG"/>
+                            <constraint firstItem="nc6-ai-7tJ" firstAttribute="leading" secondItem="asK-iu-Lml" secondAttribute="leading" id="5z0-Hg-peQ"/>
                             <constraint firstItem="KwH-Oy-QrE" firstAttribute="leading" secondItem="asK-iu-Lml" secondAttribute="leading" constant="20" id="6Tw-KL-E3M"/>
                             <constraint firstItem="MfN-kL-TN7" firstAttribute="centerX" secondItem="asK-iu-Lml" secondAttribute="centerX" id="Aen-EX-vop"/>
                             <constraint firstAttribute="trailing" secondItem="KwH-Oy-QrE" secondAttribute="trailing" constant="20" id="c5g-Cu-JdQ"/>
                             <constraint firstItem="KwH-Oy-QrE" firstAttribute="centerY" secondItem="asK-iu-Lml" secondAttribute="centerY" constant="-100" id="j0s-Ov-zwy"/>
+                            <constraint firstItem="nc6-ai-7tJ" firstAttribute="top" secondItem="MvI-EX-RgQ" secondAttribute="bottom" id="l4A-tu-FM7"/>
+                            <constraint firstAttribute="trailing" secondItem="nc6-ai-7tJ" secondAttribute="trailing" id="odc-WK-ogo"/>
                             <constraint firstItem="MfN-kL-TN7" firstAttribute="centerY" secondItem="asK-iu-Lml" secondAttribute="centerY" constant="100" id="one-KE-jYv"/>
                         </constraints>
                     </view>
@@ -265,53 +287,83 @@
             <point key="canvasLocation" x="4465" y="-1084"/>
         </scene>
         <!--Picture View Collection View Controller-->
-        <scene sceneID="veY-Vg-LlF">
+        <scene sceneID="OfU-pN-30q">
             <objects>
-                <collectionViewController storyboardIdentifier="pictureCollection" id="o00-l9-KEf" customClass="PictureViewCollectionViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="otq-TT-oz1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController storyboardIdentifier="pictureCollection" id="Ldl-Gr-nQO" customClass="PictureViewCollectionViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mjb-E8-JcC"/>
+                        <viewControllerLayoutGuide type="bottom" id="ViM-55-kXg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Aza-3P-XZ6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Cu-Tz-C7E">
+                                <rect key="frame" x="0.0" y="20" width="414" height="24"/>
+                                <items>
+                                    <navigationItem id="9uZ-oI-qeu">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="dDQ-oe-6XD">
+                                            <connections>
+                                                <action selector="dismiss:" destination="Ldl-Gr-nQO" id="hv8-Te-tJr"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a1I-0T-eRA">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ibc-V3-9Gf">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6jo-73-RaR">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pictureCell" id="kTl-ga-hRG" customClass="FlickRCollectionViewCell" customModule="Travel_Journal" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AgX-15-F9D">
+                                                            <rect key="frame" x="-105" y="-39" width="240" height="128"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </view>
+                                                <connections>
+                                                    <outlet property="FlickRImage" destination="AgX-15-F9D" id="E8w-bQ-5aM"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qzx-mW-RSq">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pictureCell" id="Y0B-Lc-gyz" customClass="FlickRCollectionViewCell" customModule="Travel_Journal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vxX-Ns-9c3">
-                                            <rect key="frame" x="-95" y="-29" width="240" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                </view>
-                                <connections>
-                                    <outlet property="FlickRImage" destination="vxX-Ns-9c3" id="2hT-3W-zPm"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="o00-l9-KEf" id="3Wh-EJ-l8f"/>
-                            <outlet property="delegate" destination="o00-l9-KEf" id="4Vq-li-fnZ"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="0pR-CS-ay9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="8WL-MY-enC"/>
-                    </navigationItem>
+                        <constraints>
+                            <constraint firstItem="3Cu-Tz-C7E" firstAttribute="top" secondItem="mjb-E8-JcC" secondAttribute="bottom" id="28f-sg-qMJ"/>
+                            <constraint firstItem="3Cu-Tz-C7E" firstAttribute="leading" secondItem="Aza-3P-XZ6" secondAttribute="leading" id="2ad-bh-fqu"/>
+                            <constraint firstAttribute="trailing" secondItem="a1I-0T-eRA" secondAttribute="trailing" id="5Pr-PY-vf0"/>
+                            <constraint firstItem="a1I-0T-eRA" firstAttribute="top" secondItem="3Cu-Tz-C7E" secondAttribute="bottom" constant="10" id="Q9x-4v-rge"/>
+                            <constraint firstAttribute="trailing" secondItem="3Cu-Tz-C7E" secondAttribute="trailing" id="XKA-vv-SFs"/>
+                            <constraint firstItem="ViM-55-kXg" firstAttribute="top" secondItem="a1I-0T-eRA" secondAttribute="bottom" constant="10" id="hPY-1T-7wM"/>
+                            <constraint firstItem="a1I-0T-eRA" firstAttribute="leading" secondItem="Aza-3P-XZ6" secondAttribute="leading" id="sZj-Tn-my0"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <outlet property="FlickRFlow" destination="qzx-mW-RSq" id="kpx-lU-dK7"/>
+                        <outlet property="FlickRFlow" destination="6jo-73-RaR" id="zmT-nx-370"/>
+                        <outlet property="collectionView" destination="Ibc-V3-9Gf" id="wqY-gj-HCu"/>
                     </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qiz-GE-dud" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uyR-zU-RQ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5348" y="-1084"/>
+            <point key="canvasLocation" x="5202.898550724638" y="-1084.2391304347827"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="t9q-ew-Zar">
@@ -322,21 +374,21 @@
                         <viewControllerLayoutGuide type="bottom" id="BBU-vc-oes"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sPR-0D-0xx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eIh-gg-IdN">
-                                <rect key="frame" x="20" y="269.5" width="335" height="128"/>
+                                <rect key="frame" x="20" y="304" width="374" height="128"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HY-2i-jrr">
-                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="128"/>
                                         <state key="normal" image="camera"/>
                                         <connections>
                                             <action selector="takingVideo:" destination="44v-zO-AgM" eventType="touchUpInside" id="Q5o-0i-gB6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKK-8a-l3q">
-                                        <rect key="frame" x="177.5" y="0.0" width="157.5" height="128"/>
+                                        <rect key="frame" x="197" y="0.0" width="177" height="128"/>
                                         <state key="normal" title="Button" image="videoLibrary"/>
                                         <connections>
                                             <action selector="videoLibrary:" destination="44v-zO-AgM" eventType="touchUpInside" id="phn-zx-dav"/>

@@ -8,14 +8,19 @@
 
 import UIKit
 
-class TextEditorViewController: UIViewController {
+class TextEditorViewController: UIViewController, UITextViewDelegate{
 
     @IBOutlet weak var textField: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textField.delegate = self
+        
+        //set up keyboard
+        //NotificationCenter.default.addObserver(self, selector: #selector(TextEditorViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(TextEditorViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +31,34 @@ class TextEditorViewController: UIViewController {
     @IBAction func Done(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+       
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textField.text = ""
+    }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        textField.resignFirstResponder()
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y += 50
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y -= 50
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
+    }
+
 
     /*
     // MARK: - Navigation
