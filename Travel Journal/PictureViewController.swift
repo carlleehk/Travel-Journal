@@ -41,6 +41,9 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         present(control, animated: true, completion: nil)
     }
     
+    @IBAction func dismiss(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

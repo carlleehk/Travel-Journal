@@ -40,6 +40,9 @@ class VideoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
 
 
+    @IBAction func dismiss(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
