@@ -37,6 +37,7 @@
 		7AC71B361E8F08D10081BBB7 /* Name+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC71B301E8F08D10081BBB7 /* Name+CoreDataClass.swift */; };
 		7AC71B371E8F08D10081BBB7 /* Name+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC71B311E8F08D10081BBB7 /* Name+CoreDataProperties.swift */; };
 		7AE56BD51E8D514300E538A5 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE56BD41E8D514300E538A5 /* VideoViewController.swift */; };
+		7AF8FAD41E9089E40015919D /* DetailJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8FAD31E9089E40015919D /* DetailJournalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		7AC71B301E8F08D10081BBB7 /* Name+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Name+CoreDataClass.swift"; path = "../Name+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7AC71B311E8F08D10081BBB7 /* Name+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Name+CoreDataProperties.swift"; path = "../Name+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7AE56BD41E8D514300E538A5 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		7AF8FAD31E9089E40015919D /* DetailJournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailJournalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		7A04496C1E830082003365AC = {
 			isa = PBXGroup;
 			children = (
+				7AF8FAD31E9089E40015919D /* DetailJournalViewController.swift */,
 				7A0449771E830082003365AC /* Travel Journal */,
 				7A04498C1E830082003365AC /* Travel JournalTests */,
 				7A0449971E830082003365AC /* Travel JournalUITests */,
@@ -368,6 +371,7 @@
 				7AC71B331E8F08D10081BBB7 /* Location+CoreDataProperties.swift in Sources */,
 				7AC71B321E8F08D10081BBB7 /* Location+CoreDataClass.swift in Sources */,
 				7AC71B371E8F08D10081BBB7 /* Name+CoreDataProperties.swift in Sources */,
+				7AF8FAD41E9089E40015919D /* DetailJournalViewController.swift in Sources */,
 				7A6895C11E8EF9E3007586FD /* JournalTableViewController.swift in Sources */,
 				7A0449A71E83013F003365AC /* MapViewController.swift in Sources */,
 				7A0449791E830082003365AC /* AppDelegate.swift in Sources */,
