@@ -72,7 +72,7 @@
         <!--Map View Controller-->
         <scene sceneID="vJY-RR-09P">
             <objects>
-                <viewController id="MJE-f7-sd2" customClass="MapViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="map" id="MJE-f7-sd2" customClass="MapViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jcc-TD-HLu"/>
                         <viewControllerLayoutGuide type="bottom" id="2Di-fh-yMy"/>

@@ -9,18 +9,18 @@
 import UIKit
 import CoreData
 
-class JournalTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class JournalTableViewController: CoreDataViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     let stack = (UIApplication.shared.delegate as! AppDelegate).stack
     let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Name")
-    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?{
+    /*var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?{
         didSet{
             fetchedResultsController?.delegate = self
             executeSearch()
         }
     
-    }
+    }*/
     
 
     override func viewDidLoad() {
@@ -74,7 +74,7 @@ class JournalTableViewController: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.cellForRow(at: indexPath)
         
         let alertController = UIAlertController(title: nil, message: "Select the action you wanted to perform for \((cell?.textLabel?.text)!)", preferredStyle: .alert)
-        let editAction = UIAlertAction(title: "Edit", style: .default){(_) in
+        let viewAction = UIAlertAction(title: "View", style: .default){(_) in
             
             let control = self.storyboard?.instantiateViewController(withIdentifier: "detailJournal") as! DetailJournalViewController
             self.present(control, animated: true, completion: nil)
@@ -92,7 +92,7 @@ class JournalTableViewController: UIViewController, UITableViewDelegate, UITable
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        alertController.addAction(editAction)
+        alertController.addAction(viewAction)
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
         
@@ -115,7 +115,15 @@ class JournalTableViewController: UIViewController, UITableViewDelegate, UITable
                     }catch{
                         print("Error while saving")
                     }
-                    print(nl)
+                    let control = self.storyboard?.instantiateViewController(withIdentifier: "map") as! MapViewController
+                    let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Location")
+                    fr.sortDescriptors = []
+                    fr.predicate = NSPredicate(format: "name = %@", argumentArray: [field.text!])
+                    let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: self.stack.context, sectionNameKeyPath: nil, cacheName: nil)
+                    
+                    control.fetchedResultsController = fc
+                    self.present(control, animated: true, completion: nil)
+                    
                 }else{
                     self.presentAlert()
                 }
@@ -138,7 +146,7 @@ class JournalTableViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
-    func executeSearch(){
+    /*func executeSearch(){
         
         if let fc = fetchedResultsController{
             
@@ -148,7 +156,7 @@ class JournalTableViewController: UIViewController, UITableViewDelegate, UITable
                 print("Error while trying to perform a search: \n\(e)\n\(fetchedResultsController)")
             }
         }
-    }
+    }*/
 
 
     /*
@@ -163,7 +171,7 @@ class JournalTableViewController: UIViewController, UITableViewDelegate, UITable
 
 }
 
-extension JournalTableViewController: NSFetchedResultsControllerDelegate {
+extension JournalTableViewController {
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()

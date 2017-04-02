@@ -38,6 +38,7 @@
 		7AC71B371E8F08D10081BBB7 /* Name+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC71B311E8F08D10081BBB7 /* Name+CoreDataProperties.swift */; };
 		7AE56BD51E8D514300E538A5 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE56BD41E8D514300E538A5 /* VideoViewController.swift */; };
 		7AF8FAD41E9089E40015919D /* DetailJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8FAD31E9089E40015919D /* DetailJournalViewController.swift */; };
+		7AF8FAD61E908ED90015919D /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8FAD51E908ED90015919D /* CoreDataViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		7AC71B311E8F08D10081BBB7 /* Name+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Name+CoreDataProperties.swift"; path = "../Name+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7AE56BD41E8D514300E538A5 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		7AF8FAD31E9089E40015919D /* DetailJournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailJournalViewController.swift; sourceTree = "<group>"; };
+		7AF8FAD51E908ED90015919D /* CoreDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		7A04496C1E830082003365AC = {
 			isa = PBXGroup;
 			children = (
+				7AF8FAD51E908ED90015919D /* CoreDataViewController.swift */,
 				7AF8FAD31E9089E40015919D /* DetailJournalViewController.swift */,
 				7A0449771E830082003365AC /* Travel Journal */,
 				7A04498C1E830082003365AC /* Travel JournalTests */,
@@ -367,6 +370,7 @@
 				7AC71B351E8F08D10081BBB7 /* DetailedJournal+CoreDataProperties.swift in Sources */,
 				7A6895C41E8EFAAA007586FD /* Model.xcdatamodeld in Sources */,
 				7A75A3011E895CFC00D518A6 /* GCDBlackBox.swift in Sources */,
+				7AF8FAD61E908ED90015919D /* CoreDataViewController.swift in Sources */,
 				7A75A3041E8967F900D518A6 /* FlickRConstant.swift in Sources */,
 				7AC71B331E8F08D10081BBB7 /* Location+CoreDataProperties.swift in Sources */,
 				7AC71B321E8F08D10081BBB7 /* Location+CoreDataClass.swift in Sources */,

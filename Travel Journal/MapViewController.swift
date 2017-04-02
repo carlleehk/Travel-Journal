@@ -11,7 +11,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var searchLocation: UITextField!
