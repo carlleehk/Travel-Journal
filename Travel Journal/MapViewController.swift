@@ -23,6 +23,9 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
     var locValue: CLLocationCoordinate2D?
     var newPin = MKPointAnnotation()
     var data = [venue]()
+    var journalName: Name? = nil
+    var long: Double!
+    var lat: Double!
     
     override func viewDidLoad() {
         
@@ -68,10 +71,11 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         locValue = (manager.location?.coordinate)!
         locationManager.stopUpdatingLocation()
         
-        performUIUpdateOnMain {
+        
             
-            FourSquareClient.sharedInstance().getVenue(lat: self.locValue!.latitude, long: self.locValue!.longitude, searchString: nil){(success, error) in
+        FourSquareClient.sharedInstance().getVenue(lat: self.locValue!.latitude, long: self.locValue!.longitude, searchString: nil){(success, error) in
                 
+            performUIUpdateOnMain {
                 if (success != nil){
                     self.data = success!
                     self.locationName.reloadData()
@@ -136,14 +140,34 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         oneVenue.url = info.url
         oneVenue.categories = info.categories
         
-        let coordinate = CLLocationCoordinate2DMake(oneVenue.location?["lat"] as! CLLocationDegrees, oneVenue.location?["lng"] as! CLLocationDegrees)
+        
+        JournalInfo.long = oneVenue.location?["lng"] as! Double
+        
+        //long = oneVenue.location?["lng"] as! Double
+        JournalInfo.lat = oneVenue.location?["lat"] as! Double
+        
+        let coordinate = CLLocationCoordinate2DMake(JournalInfo.lat, JournalInfo.long)
         updateMapPin(location: coordinate)
         
         nextButton.isEnabled = true
         
         firstRun = false
   
-
+    }
+    
+    @IBAction func next(_ sender: Any) {
+        
+        let journalLocation = Location(lat: JournalInfo.lat, long: JournalInfo.long, context: stack.context)
+        journalLocation.name = journalName
+        print(journalLocation)
+        save()
+        JournalInfo.location = journalLocation
+        let control = storyboard?.instantiateViewController(withIdentifier: "chooseScreen") as! ChooseScreenViewController
+        /*control.location = journalLocation
+        control.lat = lat
+        control.long = long*/
+        present(control, animated: true, completion: nil)
+        
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -155,23 +179,23 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         let search = searchLocation.text
         textField.resignFirstResponder()
         
-        performUIUpdateOnMain {
-            
-            FourSquareClient.sharedInstance().getVenue(lat: nil, long: nil, searchString: search){(success, error) in
+        FourSquareClient.sharedInstance().getVenue(lat: nil, long: nil, searchString: search){(success, error) in
                 
-                if (success != nil){
-                    self.data = success!
-                    self.locationName.reloadData()
-                } else{
-                    
-                    let alertController = UIAlertController(title: "Error", message: "Location not found, please retype another location for searching", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alertController, animated: true, completion: nil)
-                    textField.text = ""
-                    
+                performUIUpdateOnMain {
+                    if (success != nil){
+                        self.data = success!
+                        self.locationName.reloadData()
+                    } else{
+                        
+                        let alertController = UIAlertController(title: "Error", message: "Location not found, please retype another location for searching", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(alertController, animated: true, completion: nil)
+                        textField.text = ""
+                        
+                    }
                 }
-            }
-        }
+                }
+                
         return true
     }
     

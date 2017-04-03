@@ -26,6 +26,8 @@
 		7A75A3011E895CFC00D518A6 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A75A3001E895CFC00D518A6 /* GCDBlackBox.swift */; };
 		7A75A3041E8967F900D518A6 /* FlickRConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A75A3031E8967F900D518A6 /* FlickRConstant.swift */; };
 		7A75A3061E896AF100D518A6 /* FlickRClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A75A3051E896AF100D518A6 /* FlickRClient.swift */; };
+		7A85BC991E928C9800BF94B5 /* JournalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85BC981E928C9800BF94B5 /* JournalInfo.swift */; };
+		7AB471BB1E918BE4009B1FFC /* ChooseScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB471BA1E918BE4009B1FFC /* ChooseScreenViewController.swift */; };
 		7ABFEB511E89B2E80000E1B7 /* FlickRConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABFEB501E89B2E80000E1B7 /* FlickRConvenience.swift */; };
 		7ABFEB531E89B6670000E1B7 /* PictureViewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABFEB521E89B6670000E1B7 /* PictureViewCollectionViewController.swift */; };
 		7ABFEB551E89D8FF0000E1B7 /* FlickRCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABFEB541E89D8FF0000E1B7 /* FlickRCollectionViewCell.swift */; };
@@ -84,6 +86,8 @@
 		7A75A3001E895CFC00D518A6 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		7A75A3031E8967F900D518A6 /* FlickRConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickRConstant.swift; sourceTree = "<group>"; };
 		7A75A3051E896AF100D518A6 /* FlickRClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickRClient.swift; sourceTree = "<group>"; };
+		7A85BC981E928C9800BF94B5 /* JournalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalInfo.swift; sourceTree = "<group>"; };
+		7AB471BA1E918BE4009B1FFC /* ChooseScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseScreenViewController.swift; sourceTree = "<group>"; };
 		7ABFEB501E89B2E80000E1B7 /* FlickRConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickRConvenience.swift; sourceTree = "<group>"; };
 		7ABFEB521E89B6670000E1B7 /* PictureViewCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewCollectionViewController.swift; sourceTree = "<group>"; };
 		7ABFEB541E89D8FF0000E1B7 /* FlickRCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickRCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -96,7 +100,7 @@
 		7AC71B311E8F08D10081BBB7 /* Name+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Name+CoreDataProperties.swift"; path = "../Name+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7AE56BD41E8D514300E538A5 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		7AF8FAD31E9089E40015919D /* DetailJournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailJournalViewController.swift; sourceTree = "<group>"; };
-		7AF8FAD51E908ED90015919D /* CoreDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
+		7AF8FAD51E908ED90015919D /* CoreDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataViewController.swift; path = ../CoreDataViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +131,9 @@
 		7A04496C1E830082003365AC = {
 			isa = PBXGroup;
 			children = (
-				7AF8FAD51E908ED90015919D /* CoreDataViewController.swift */,
+				7AB471BA1E918BE4009B1FFC /* ChooseScreenViewController.swift */,
 				7AF8FAD31E9089E40015919D /* DetailJournalViewController.swift */,
+				7A85BC981E928C9800BF94B5 /* JournalInfo.swift */,
 				7A0449771E830082003365AC /* Travel Journal */,
 				7A04498C1E830082003365AC /* Travel JournalTests */,
 				7A0449971E830082003365AC /* Travel JournalUITests */,
@@ -202,6 +207,7 @@
 		7A6895D11E8F0107007586FD /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				7AF8FAD51E908ED90015919D /* CoreDataViewController.swift */,
 				7AC71B2C1E8F08D10081BBB7 /* Location+CoreDataClass.swift */,
 				7AC71B2D1E8F08D10081BBB7 /* Location+CoreDataProperties.swift */,
 				7AC71B2E1E8F08D10081BBB7 /* DetailedJournal+CoreDataClass.swift */,
@@ -367,6 +373,7 @@
 				7ABFEB571E8AE0560000E1B7 /* TextEditorViewController.swift in Sources */,
 				7A04497B1E830082003365AC /* ViewController.swift in Sources */,
 				7A0449AE1E8303C6003365AC /* Convenience.swift in Sources */,
+				7A85BC991E928C9800BF94B5 /* JournalInfo.swift in Sources */,
 				7AC71B351E8F08D10081BBB7 /* DetailedJournal+CoreDataProperties.swift in Sources */,
 				7A6895C41E8EFAAA007586FD /* Model.xcdatamodeld in Sources */,
 				7A75A3011E895CFC00D518A6 /* GCDBlackBox.swift in Sources */,
@@ -383,6 +390,7 @@
 				7AE56BD51E8D514300E538A5 /* VideoViewController.swift in Sources */,
 				7A5C7B271E86A0AF00819305 /* PictureViewController.swift in Sources */,
 				7A6895D31E8F0157007586FD /* CoreDataStack.swift in Sources */,
+				7AB471BB1E918BE4009B1FFC /* ChooseScreenViewController.swift in Sources */,
 				7ABFEB531E89B6670000E1B7 /* PictureViewCollectionViewController.swift in Sources */,
 				7ABFEB511E89B2E80000E1B7 /* FlickRConvenience.swift in Sources */,
 				7A0449AA1E830366003365AC /* Constant.swift in Sources */,

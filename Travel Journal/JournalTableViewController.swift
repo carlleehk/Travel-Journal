@@ -12,7 +12,6 @@ import CoreData
 class JournalTableViewController: CoreDataViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    let stack = (UIApplication.shared.delegate as! AppDelegate).stack
     let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Name")
     /*var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?{
         didSet{
@@ -116,12 +115,13 @@ class JournalTableViewController: CoreDataViewController, UITableViewDelegate, U
                         print("Error while saving")
                     }
                     let control = self.storyboard?.instantiateViewController(withIdentifier: "map") as! MapViewController
-                    let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Location")
+                    control.journalName = nl
+                    /*let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Location")
                     fr.sortDescriptors = []
                     fr.predicate = NSPredicate(format: "name = %@", argumentArray: [field.text!])
                     let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: self.stack.context, sectionNameKeyPath: nil, cacheName: nil)
                     
-                    control.fetchedResultsController = fc
+                    control.fetchedResultsController = fc*/
                     self.present(control, animated: true, completion: nil)
                     
                 }else{
