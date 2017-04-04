@@ -57,7 +57,7 @@ extension FlickRClient{
                     return
                 }
                 
-                let pageLimit = min(photoPage, 40)
+                let pageLimit = min(photoPage, 5)
                 let randomPhotoPage = Int(arc4random_uniform(UInt32(pageLimit)))
                 completionHandlerForRandomPageNumber(true, randomPhotoPage, nil)
             }

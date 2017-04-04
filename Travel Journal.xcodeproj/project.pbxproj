@@ -86,8 +86,8 @@
 		7A75A3001E895CFC00D518A6 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		7A75A3031E8967F900D518A6 /* FlickRConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickRConstant.swift; sourceTree = "<group>"; };
 		7A75A3051E896AF100D518A6 /* FlickRClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickRClient.swift; sourceTree = "<group>"; };
-		7A85BC981E928C9800BF94B5 /* JournalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalInfo.swift; sourceTree = "<group>"; };
-		7AB471BA1E918BE4009B1FFC /* ChooseScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseScreenViewController.swift; sourceTree = "<group>"; };
+		7A85BC981E928C9800BF94B5 /* JournalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JournalInfo.swift; path = ../JournalInfo.swift; sourceTree = "<group>"; };
+		7AB471BA1E918BE4009B1FFC /* ChooseScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseScreenViewController.swift; path = ../ChooseScreenViewController.swift; sourceTree = "<group>"; };
 		7ABFEB501E89B2E80000E1B7 /* FlickRConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickRConvenience.swift; sourceTree = "<group>"; };
 		7ABFEB521E89B6670000E1B7 /* PictureViewCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewCollectionViewController.swift; sourceTree = "<group>"; };
 		7ABFEB541E89D8FF0000E1B7 /* FlickRCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickRCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		7AC71B301E8F08D10081BBB7 /* Name+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Name+CoreDataClass.swift"; path = "../Name+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7AC71B311E8F08D10081BBB7 /* Name+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Name+CoreDataProperties.swift"; path = "../Name+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7AE56BD41E8D514300E538A5 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
-		7AF8FAD31E9089E40015919D /* DetailJournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailJournalViewController.swift; sourceTree = "<group>"; };
+		7AF8FAD31E9089E40015919D /* DetailJournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailJournalViewController.swift; path = ../DetailJournalViewController.swift; sourceTree = "<group>"; };
 		7AF8FAD51E908ED90015919D /* CoreDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataViewController.swift; path = ../CoreDataViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,9 +131,6 @@
 		7A04496C1E830082003365AC = {
 			isa = PBXGroup;
 			children = (
-				7AB471BA1E918BE4009B1FFC /* ChooseScreenViewController.swift */,
-				7AF8FAD31E9089E40015919D /* DetailJournalViewController.swift */,
-				7A85BC981E928C9800BF94B5 /* JournalInfo.swift */,
 				7A0449771E830082003365AC /* Travel Journal */,
 				7A04498C1E830082003365AC /* Travel JournalTests */,
 				7A0449971E830082003365AC /* Travel JournalUITests */,
@@ -154,23 +151,19 @@
 		7A0449771E830082003365AC /* Travel Journal */ = {
 			isa = PBXGroup;
 			children = (
-				7A6895D11E8F0107007586FD /* CoreData */,
 				7A75A3001E895CFC00D518A6 /* GCDBlackBox.swift */,
+				7A85BC9A1E92908000BF94B5 /* View */,
+				7A6895D11E8F0107007586FD /* CoreData */,
 				7A75A3021E89675700D518A6 /* FlickR API */,
 				7A0449A81E830352003365AC /* FourSquare API */,
 				7A0449781E830082003365AC /* AppDelegate.swift */,
+				7A85BC981E928C9800BF94B5 /* JournalInfo.swift */,
 				7A04497A1E830082003365AC /* ViewController.swift */,
-				7A04497C1E830082003365AC /* Main.storyboard */,
-				7A04497F1E830082003365AC /* Assets.xcassets */,
-				7A0449811E830082003365AC /* LaunchScreen.storyboard */,
-				7A0449841E830082003365AC /* Info.plist */,
-				7A0449A61E83013F003365AC /* MapViewController.swift */,
-				7A5C7B261E86A0AE00819305 /* PictureViewController.swift */,
-				7ABFEB521E89B6670000E1B7 /* PictureViewCollectionViewController.swift */,
 				7ABFEB541E89D8FF0000E1B7 /* FlickRCollectionViewCell.swift */,
-				7ABFEB561E8AE0560000E1B7 /* TextEditorViewController.swift */,
-				7AE56BD41E8D514300E538A5 /* VideoViewController.swift */,
-				7A6895C01E8EF9E3007586FD /* JournalTableViewController.swift */,
+				7A04497C1E830082003365AC /* Main.storyboard */,
+				7A0449811E830082003365AC /* LaunchScreen.storyboard */,
+				7A04497F1E830082003365AC /* Assets.xcassets */,
+				7A0449841E830082003365AC /* Info.plist */,
 			);
 			path = "Travel Journal";
 			sourceTree = "<group>";
@@ -228,6 +221,21 @@
 				7ABFEB501E89B2E80000E1B7 /* FlickRConvenience.swift */,
 			);
 			name = "FlickR API";
+			sourceTree = "<group>";
+		};
+		7A85BC9A1E92908000BF94B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7AB471BA1E918BE4009B1FFC /* ChooseScreenViewController.swift */,
+				7AF8FAD31E9089E40015919D /* DetailJournalViewController.swift */,
+				7A0449A61E83013F003365AC /* MapViewController.swift */,
+				7A5C7B261E86A0AE00819305 /* PictureViewController.swift */,
+				7ABFEB521E89B6670000E1B7 /* PictureViewCollectionViewController.swift */,
+				7ABFEB561E8AE0560000E1B7 /* TextEditorViewController.swift */,
+				7AE56BD41E8D514300E538A5 /* VideoViewController.swift */,
+				7A6895C01E8EF9E3007586FD /* JournalTableViewController.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PictureViewController: ChooseScreenViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +42,21 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func dismiss(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let imagePick = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            
+            let data = UIImagePNGRepresentation(imagePick)
+            let imageData = DetailedJournal(pic: (data! as NSData), video: nil, detailJ: nil, context: stack.context)
+            imageData.locationPic = JournalInfo.location
+            print(imageData)
+            save()
+            
+        }
+        
         dismiss(animated: true, completion: nil)
     }
     /*

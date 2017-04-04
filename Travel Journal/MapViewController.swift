@@ -163,9 +163,6 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         save()
         JournalInfo.location = journalLocation
         let control = storyboard?.instantiateViewController(withIdentifier: "chooseScreen") as! ChooseScreenViewController
-        /*control.location = journalLocation
-        control.lat = lat
-        control.long = long*/
         present(control, animated: true, completion: nil)
         
     }

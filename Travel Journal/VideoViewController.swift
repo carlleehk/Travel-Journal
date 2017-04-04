@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import MobileCoreServices
 
-class VideoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class VideoViewController: ChooseScreenViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,33 @@ class VideoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         image.mediaTypes = [kUTTypeMovie as String]
         image.delegate = self
         present(image, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let mediaType = info[UIImagePickerControllerMediaType] as! String
+        
+        if mediaType == kUTTypeMovie as String{
+            
+            let videoURL = info[UIImagePickerControllerMediaURL] as! URL
+            do {
+                let video = try NSData(contentsOf: videoURL, options: .mappedIfSafe)
+                let videoData = DetailedJournal(pic: nil, video: video, detailJ: nil, context: stack.context)
+                videoData.locationVid = JournalInfo.location
+                print(videoData)
+                save() 
+                
+            } catch {
+                print(error)
+                return
+            }
+            
+            
+        }
+    
+        dismiss(animated: true, completion: nil)
+
+        
     }
 
 
