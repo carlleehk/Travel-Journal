@@ -51,7 +51,7 @@ class PictureViewController: ChooseScreenViewController, UIImagePickerController
             
             let data = UIImagePNGRepresentation(imagePick)
             let imageData = DetailedJournal(pic: (data! as NSData), video: nil, detailJ: nil, context: stack.context)
-            imageData.locationPic = JournalInfo.location
+            imageData.location = JournalInfo.location
             print(imageData)
             save()
             

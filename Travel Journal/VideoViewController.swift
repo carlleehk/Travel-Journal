@@ -49,7 +49,7 @@ class VideoViewController: ChooseScreenViewController, UIImagePickerControllerDe
             do {
                 let video = try NSData(contentsOf: videoURL, options: .mappedIfSafe)
                 let videoData = DetailedJournal(pic: nil, video: video, detailJ: nil, context: stack.context)
-                videoData.locationVid = JournalInfo.location
+                videoData.location = JournalInfo.location
                 print(videoData)
                 save() 
                 

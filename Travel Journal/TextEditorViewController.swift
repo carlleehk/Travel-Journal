@@ -28,7 +28,7 @@ class TextEditorViewController: ChooseScreenViewController, UITextViewDelegate{
     func textViewDidEndEditing(_ textView: UITextView) {
         textField.resignFirstResponder()
         let detailJ = DetailedJournal(pic: nil, video: nil, detailJ: textField.text, context: stack.context)
-        detailJ.locationNote = JournalInfo.location
+        detailJ.location = JournalInfo.location
         save()
         print(detailJ)
         

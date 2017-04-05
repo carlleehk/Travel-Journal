@@ -208,10 +208,25 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKl-UN-k0a">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <items>
+                                    <navigationItem id="Avs-mO-B7G">
+                                        <barButtonItem key="rightBarButtonItem" title="Preview" id="Exd-PM-Ucf">
+                                            <connections>
+                                                <segue destination="v9w-N1-36d" kind="show" id="I0i-4H-z0A"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cKl-UN-k0a" secondAttribute="trailing" id="0eH-e4-nyJ"/>
                             <constraint firstItem="Th0-DU-F1m" firstAttribute="centerY" secondItem="iA4-nm-gxe" secondAttribute="centerY" constant="-100" id="227-6c-Jrp"/>
+                            <constraint firstItem="cKl-UN-k0a" firstAttribute="top" secondItem="FVP-4e-65k" secondAttribute="bottom" id="5wz-2b-o5a"/>
+                            <constraint firstItem="cKl-UN-k0a" firstAttribute="leading" secondItem="iA4-nm-gxe" secondAttribute="leading" id="8ZS-MT-qaV"/>
                             <constraint firstAttribute="trailing" secondItem="Th0-DU-F1m" secondAttribute="trailing" constant="20" id="Gz7-qS-8lh"/>
                             <constraint firstItem="Th0-DU-F1m" firstAttribute="leading" secondItem="iA4-nm-gxe" secondAttribute="leading" constant="20" id="MaX-kQ-7Nn"/>
                             <constraint firstItem="cYs-hG-VXg" firstAttribute="centerY" secondItem="iA4-nm-gxe" secondAttribute="centerY" constant="100" id="Ypj-yn-6Rz"/>
@@ -309,7 +324,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMc-1h-T0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4141" y="-1763"/>
+            <point key="canvasLocation" x="3713" y="-1877"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dsQ-7L-qHl">
+            <objects>
+                <viewController id="v9w-N1-36d" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gIx-kL-ZKj"/>
+                        <viewControllerLayoutGuide type="bottom" id="viF-b5-Eom"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2gy-Kv-TpA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nyj-Nb-H4G">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="vLc-0f-eHE"/>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tWt-1J-ANT">
+                                <rect key="frame" x="0.0" y="88" width="414" height="177"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Nyj-Nb-H4G" secondAttribute="trailing" id="Iqb-80-3p5"/>
+                            <constraint firstItem="Nyj-Nb-H4G" firstAttribute="leading" secondItem="2gy-Kv-TpA" secondAttribute="leading" id="ZC4-89-nWa"/>
+                            <constraint firstItem="Nyj-Nb-H4G" firstAttribute="top" secondItem="gIx-kL-ZKj" secondAttribute="bottom" id="a3e-4d-6mu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B0c-8r-zT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4618.840579710145" y="-1890.4891304347827"/>
         </scene>
         <!--Picture View Controller-->
         <scene sceneID="OnS-zf-eco">
