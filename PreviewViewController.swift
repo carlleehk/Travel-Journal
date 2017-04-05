@@ -19,7 +19,7 @@ class PreviewViewController: CoreDataViewController {
         fr.sortDescriptors = []
         fr.predicate = NSPredicate(format: "location = %@", [JournalInfo.location])
         
-        //let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
+        let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
 
         // Do any additional setup after loading the view.
     }
