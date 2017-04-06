@@ -80,7 +80,7 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
                     self.data = success!
                     self.locationName.reloadData()
                 } else{
-                    print("There is an error: \(error?.localizedDescription)")
+                    print("There is an error: \((error?.localizedDescription)!)")
                 }
             }
         }

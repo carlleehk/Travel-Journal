@@ -50,7 +50,7 @@ class PictureViewController: ChooseScreenViewController, UIImagePickerController
         if let imagePick = info[UIImagePickerControllerOriginalImage] as? UIImage{
             
             let data = UIImagePNGRepresentation(imagePick)
-            let imageData = DetailedJournal(pic: (data! as NSData), video: nil, detailJ: nil, context: stack.context)
+            let imageData = Photo(photo: data as! NSData, context: stack.context)
             imageData.location = JournalInfo.location
             print(imageData)
             save()

@@ -2,7 +2,7 @@
 //  Name+CoreDataProperties.swift
 //  Travel Journal
 //
-//  Created by Carl Lee on 4/5/17.
+//  Created by Carl Lee on 4/6/17.
 //  Copyright © 2017 Carl Lee. All rights reserved.
 //
 

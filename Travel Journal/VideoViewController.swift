@@ -48,7 +48,7 @@ class VideoViewController: ChooseScreenViewController, UIImagePickerControllerDe
             let videoURL = info[UIImagePickerControllerMediaURL] as! URL
             do {
                 let video = try NSData(contentsOf: videoURL, options: .mappedIfSafe)
-                let videoData = DetailedJournal(pic: nil, video: video, detailJ: nil, context: stack.context)
+                let videoData = Video(video: video, pic: nil, context: stack.context)
                 videoData.location = JournalInfo.location
                 print(videoData)
                 save() 

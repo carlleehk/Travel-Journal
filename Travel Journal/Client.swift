@@ -83,7 +83,7 @@ class FourSquareClient: NSObject{
             let queryItem = NSURLQueryItem(name: key, value: "\(value)")
             components.queryItems!.append(queryItem as URLQueryItem)
         }
-        print("the url is: \(components.url)")
+        print("the url is: \((components.url)!)")
         return components.url! as NSURL
         
     }
