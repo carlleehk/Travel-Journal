@@ -47,8 +47,16 @@ class VideoViewController: ChooseScreenViewController, UIImagePickerControllerDe
             
             let videoURL = info[UIImagePickerControllerMediaURL] as! URL
             do {
+                let asset = AVURLAsset(url: videoURL)
+                let generator = AVAssetImageGenerator(asset: asset)
+                generator.appliesPreferredTrackTransform = true
+                
+                let timestamp = CMTime(seconds: 1, preferredTimescale: 60)
+                let imageRef = try generator.copyCGImage(at: timestamp, actualTime: nil)
+                let image = UIImage(cgImage: imageRef)
+                let data = UIImagePNGRepresentation(image)
                 let video = try NSData(contentsOf: videoURL, options: .mappedIfSafe)
-                let videoData = Video(video: video, pic: nil, context: stack.context)
+                let videoData = Video(video: video, pic: data as! NSData, context: stack.context)
                 videoData.location = JournalInfo.location
                 print(videoData)
                 save() 

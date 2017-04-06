@@ -14,7 +14,7 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
     @IBOutlet weak var journalText: UITextView!
     @IBOutlet weak var previewCollection: UICollectionView!
     
-    let entityName = ["Note", "Photo", "Video"]
+    let header = ["Photo", "Video"]
     @IBOutlet weak var layOut: UICollectionViewFlowLayout!
     let fr1 = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
     let fr2 = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
@@ -47,10 +47,14 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fr3, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
         frc3 = fetchedResultsController
         
-        let journal = frc1.fetchedObjects?[0] as! Note
-        journalText.text = journal.notes!
-        // Do any additional setup after loading the view.
+        if frc1.fetchedObjects?.count == 0 {
+            journalText.text = "No note had been created"
+        } else{
+            let journal = frc1.fetchedObjects?[0] as! Note
+            journalText.text = journal.notes!
+        }
         
+        // Do any additional setup after loading the view.
         let space: CGFloat = 1.5
         let dimension = view.frame.size.width >= view.frame.size.height ? (view.frame.size.width - (5 * space)) / 6.0 : (view.frame.size.width - (2*space))/3.0
         layOut.minimumInteritemSpacing = space
@@ -64,25 +68,57 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return frc2.sections![section].numberOfObjects
+        
+        if section == 0{
+            return (frc2.fetchedObjects?.count)!
+        } else if section == 1{
+            return (frc3.fetchedObjects?.count)!
+
+        }
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind{
+        case UICollectionElementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "name", for: indexPath) as! FlickRCollectionViewCell
+            headerView.headerLabel.text = header[indexPath.section]
+            return headerView
+        default:
+            assert(false, "Unexpected element kind")
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "preview", for: indexPath)
-        let picDatas = frc2.object(at: indexPath) as! Photo
-        let image = UIImage(data: picDatas.photoData! as Data)
-        let imageView = UIImageView(image: image)
-        cell.backgroundView = imageView
+        if indexPath.section == 0{
+            let picDatas = frc2.object(at: indexPath) as! Photo
+            let image = UIImage(data: picDatas.photoData as! Data)
+            let imageView = UIImageView(image: image)
+            cell.backgroundView = imageView
+            return cell
+        }else if indexPath.section == 1{
+            let picDatas = frc3.object(at: IndexPath(row: indexPath.row, section: 0 )) as! Video
+            let image = UIImage(data: picDatas.videoPhoto as! Data)
+            let imageView = UIImageView(image: image)
+            cell.backgroundView = imageView
+            return cell
+        }
+        
         return cell
         
     }
     
+    @IBAction func dismiss(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
 
     /*
     // MARK: - Navigation

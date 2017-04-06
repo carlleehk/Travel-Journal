@@ -11,6 +11,7 @@ import UIKit
 class FlickRCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var FlickRImage: UIImageView!
-    @IBOutlet weak var JournalText: UITextView!
+
+    @IBOutlet weak var headerLabel: UILabel!
     
 }
