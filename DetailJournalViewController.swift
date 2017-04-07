@@ -34,12 +34,7 @@ class DetailJournalViewController: CoreDataViewController, UITableViewDelegate, 
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func done(_ sender: Any) {
-        
-        dismiss(animated: true, completion: nil)
-        
-    }
-    
+       
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if let fc = fetchedResultsController{

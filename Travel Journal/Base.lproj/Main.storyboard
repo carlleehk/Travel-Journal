@@ -305,10 +305,14 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="toR-Tv-d06">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="NwQ-RY-Xpj"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="NwQ-RY-Xpj">
+                                            <connections>
+                                                <segue destination="MJE-f7-sd2" kind="show" id="Kxu-S6-QgC"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="I37-xr-emu">
                                             <connections>
-                                                <action selector="done:" destination="eY9-7z-UXB" id="HaI-tR-oe4"/>
+                                                <segue destination="X04-vq-gOF" kind="show" id="YxG-dl-3dr"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -385,7 +389,11 @@
                                                 <action selector="dismiss:" destination="v9w-N1-36d" id="Zvh-Wb-R0f"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Done" id="2tj-8B-nCk"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="2tj-8B-nCk">
+                                            <connections>
+                                                <segue destination="eY9-7z-UXB" kind="show" id="RSH-uB-isV"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

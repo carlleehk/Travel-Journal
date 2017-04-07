@@ -13,14 +13,6 @@ class JournalTableViewController: CoreDataViewController, UITableViewDelegate, U
     
     @IBOutlet weak var tableView: UITableView!
     let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Name")
-    /*var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?{
-        didSet{
-            fetchedResultsController?.delegate = self
-            executeSearch()
-        }
-    
-    }*/
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,19 +23,9 @@ class JournalTableViewController: CoreDataViewController, UITableViewDelegate, U
         fr.sortDescriptors = [NSSortDescriptor(key: "journalName", ascending: true)]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
 
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func addJournal(_ sender: Any) {
-        presentAlert()
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if let fc = fetchedResultsController{
             print("there are \(fc.sections![section].numberOfObjects) objects")
@@ -84,6 +66,17 @@ class JournalTableViewController: CoreDataViewController, UITableViewDelegate, U
             self.present(control, animated: true, completion: nil)
             
         }
+        
+        let editAction = UIAlertAction(title: "Edit Name", style: .default){(_) in
+            
+            let object = self.fetchedResultsController?.object(at: indexPath) as! Name
+            self.presentAlert(entryExist: true, object: object)
+            self.save()
+            JournalInfo.journalName = object
+            
+            
+        }
+
         let deleteAction = UIAlertAction(title: "Delete", style: .default){(_) in
             
             self.stack.context.delete(self.fetchedResultsController?.object(at: indexPath) as! Name)
@@ -94,10 +87,11 @@ class JournalTableViewController: CoreDataViewController, UITableViewDelegate, U
             }
             
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(viewAction)
         alertController.addAction(deleteAction)
+        alertController.addAction(editAction)
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true, completion: nil)
@@ -105,7 +99,7 @@ class JournalTableViewController: CoreDataViewController, UITableViewDelegate, U
      
     }
     
-    func presentAlert(){
+    func presentAlert(entryExist: Bool, object: Name?){
         
         let alertController = UIAlertController(title: "New Journal", message: "Enter your journal name", preferredStyle: .alert)
         
@@ -113,24 +107,18 @@ class JournalTableViewController: CoreDataViewController, UITableViewDelegate, U
             
             if let field = alertController.textFields?[0]{
                 if field.text != ""{
-                    let nl = Name(name: field.text!, context: self.stack.context)
-                    do{
-                        try self.stack.saveContext()
-                    }catch{
-                        print("Error while saving")
+                    if !entryExist{
+                        let nl = Name(name: field.text!, context: self.stack.context)
+                        JournalInfo.journalName = nl
+                        self.save()
+                        let control = self.storyboard?.instantiateViewController(withIdentifier: "map") as! MapViewController
+                        self.present(control, animated: true, completion: nil)
+
+                    } else{
+                        object?.setValue(field.text, forKey: "journalName")
                     }
-                    let control = self.storyboard?.instantiateViewController(withIdentifier: "map") as! MapViewController
-                    JournalInfo.journalName = nl
-                    /*let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Location")
-                    fr.sortDescriptors = []
-                    fr.predicate = NSPredicate(format: "name = %@", argumentArray: [field.text!])
-                    let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: self.stack.context, sectionNameKeyPath: nil, cacheName: nil)
-                    
-                    control.fetchedResultsController = fc*/
-                    self.present(control, animated: true, completion: nil)
-                    
-                }else{
-                    self.presentAlert()
+                } else{
+                    self.presentAlert(entryExist: false, object: nil)
                 }
                 
             } else{
@@ -146,33 +134,13 @@ class JournalTableViewController: CoreDataViewController, UITableViewDelegate, U
         
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
-        
         present(alertController, animated: true, completion: nil)
-        
     }
     
-    /*func executeSearch(){
-        
-        if let fc = fetchedResultsController{
-            
-            do{
-                try fc.performFetch()
-            } catch let e as NSError{
-                print("Error while trying to perform a search: \n\(e)\n\(fetchedResultsController)")
-            }
-        }
-    }*/
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func addJournal(_ sender: Any) {
+        presentAlert(entryExist: false, object: nil)
     }
-    */
+    
 
 }
 
