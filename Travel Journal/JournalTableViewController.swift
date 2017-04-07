@@ -71,11 +71,16 @@ class JournalTableViewController: CoreDataViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let cell = tableView.cellForRow(at: indexPath)
+        let info = fetchedResultsController?.object(at: indexPath) as! Name
+        
+
         
         let alertController = UIAlertController(title: nil, message: "Select the action you wanted to perform for \((cell?.textLabel?.text)!)", preferredStyle: .alert)
         let viewAction = UIAlertAction(title: "View", style: .default){(_) in
             
             let control = self.storyboard?.instantiateViewController(withIdentifier: "detailJournal") as! DetailJournalViewController
+            
+            JournalInfo.journalName = info
             self.present(control, animated: true, completion: nil)
             
         }
@@ -115,7 +120,7 @@ class JournalTableViewController: CoreDataViewController, UITableViewDelegate, U
                         print("Error while saving")
                     }
                     let control = self.storyboard?.instantiateViewController(withIdentifier: "map") as! MapViewController
-                    control.journalName = nl
+                    JournalInfo.journalName = nl
                     /*let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Location")
                     fr.sortDescriptors = []
                     fr.predicate = NSPredicate(format: "name = %@", argumentArray: [field.text!])

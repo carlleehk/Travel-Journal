@@ -12,13 +12,15 @@ import CoreData
 @objc(Location)
 public class Location: NSManagedObject {
     
-    convenience init(lat: Double, long: Double, context: NSManagedObjectContext){
+    convenience init(lat: Double, long: Double, name: String, date: NSDate, context: NSManagedObjectContext){
         
         if let ent = NSEntityDescription.entity(forEntityName: "Location", in: context){
             
             self.init(entity: ent, insertInto: context)
             self.lat = lat
             self.long = long
+            self.locationName = name
+            self.creationDate = date
             
         } else{
             fatalError("Unable to find entity name")

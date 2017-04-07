@@ -23,7 +23,6 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
     var locValue: CLLocationCoordinate2D?
     var newPin = MKPointAnnotation()
     var data = [venue]()
-    var journalName: Name? = nil
     var long: Double!
     var lat: Double!
     
@@ -145,6 +144,8 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         
         //long = oneVenue.location?["lng"] as! Double
         JournalInfo.lat = oneVenue.location?["lat"] as! Double
+        JournalInfo.locationName = info.name
+        
         
         let coordinate = CLLocationCoordinate2DMake(JournalInfo.lat, JournalInfo.long)
         updateMapPin(location: coordinate)
@@ -157,8 +158,11 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
     
     @IBAction func next(_ sender: Any) {
         
-        let journalLocation = Location(lat: JournalInfo.lat, long: JournalInfo.long, context: stack.context)
-        journalLocation.name = journalName
+        let date = getDate()
+        
+        print(JournalInfo.locationName)
+        let journalLocation = Location(lat: JournalInfo.lat, long: JournalInfo.long, name: JournalInfo.locationName, date: date, context: stack.context)
+        journalLocation.name = JournalInfo.journalName
         print(journalLocation)
         save()
         JournalInfo.location = journalLocation
@@ -214,6 +218,14 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
                 self.view.frame.origin.y += keyboardSize.height
             }
         }
+    }
+    
+    func getDate() -> NSDate{
+        
+        let date = Date().timeIntervalSinceReferenceDate
+        
+        return NSDate(timeIntervalSinceReferenceDate: date)
+        
     }
 
     

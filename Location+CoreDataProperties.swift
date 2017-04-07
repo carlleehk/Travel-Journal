@@ -18,8 +18,10 @@ extension Location {
 
     @NSManaged public var lat: Double
     @NSManaged public var long: Double
-    @NSManaged public var note: NSSet?
+    @NSManaged public var locationName: String?
+    @NSManaged public var creationDate: NSDate?
     @NSManaged public var name: Name?
+    @NSManaged public var note: NSSet?
     @NSManaged public var photo: NSSet?
     @NSManaged public var video: Video?
 

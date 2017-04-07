@@ -12,6 +12,8 @@ struct JournalInfo{
     
     static var lat: Double!
     static var long: Double!
+    static var locationName: String!
+    static var journalName: Name!
     static var location: Location!
     
 }
