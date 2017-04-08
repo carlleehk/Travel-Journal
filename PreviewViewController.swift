@@ -9,10 +9,16 @@
 import UIKit
 import CoreData
 
-class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextViewDelegate {
     
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var journalText: UITextView!
     @IBOutlet weak var previewCollection: UICollectionView!
+    
+    var insertedIndexPath: [NSIndexPath]!
+    var deletedIndexPath: [NSIndexPath]!
+    var updatedIndexPath: [NSIndexPath]!
     
     let header = ["Photo", "Video"]
     @IBOutlet weak var layOut: UICollectionViewFlowLayout!
@@ -21,12 +27,18 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
     let fr3 = NSFetchRequest<NSFetchRequestResult>(entityName: "Video")
     var frc1, frc2, frc3: NSFetchedResultsController<NSFetchRequestResult>!
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         previewCollection.delegate = self
         previewCollection.dataSource = self
+        
+        journalText.delegate = self
+        
+        previewCollection.allowsMultipleSelection = true
+        deleteButton.isHidden = true
         
         //set up fetch result controller
         fr1.sortDescriptors = []
@@ -54,6 +66,8 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
             journalText.text = journal.notes!
         }
         
+        
+        
         // Do any additional setup after loading the view.
         let space: CGFloat = 1.5
         let dimension = view.frame.size.width >= view.frame.size.height ? (view.frame.size.width - (5 * space)) / 6.0 : (view.frame.size.width - (2*space))/3.0
@@ -73,11 +87,22 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if section == 0{
-            return (frc2.fetchedObjects?.count)!
-        } else if section == 1{
-            return (frc3.fetchedObjects?.count)!
+        var frc2c = frc2.fetchedObjects?.count
+        var frc3c = frc3.fetchedObjects?.count
 
+        
+        if section == 0{
+            if frc2c == 0{
+                return 1
+            } else{
+                return frc2c!
+            }
+        } else if section == 1{
+            if frc3c == 0{
+                return 1
+            } else{
+                return frc3c!
+            }
         }
         return 0
     }
@@ -87,6 +112,7 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         case UICollectionElementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "name", for: indexPath) as! FlickRCollectionViewCell
             headerView.headerLabel.text = header[indexPath.section]
+            
             return headerView
         default:
             assert(false, "Unexpected element kind")
@@ -95,31 +121,147 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        var frc2c = frc2.fetchedObjects?.count
+        var frc3c = frc3.fetchedObjects?.count
+
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "preview", for: indexPath)
         if indexPath.section == 0{
-            let picDatas = frc2.object(at: indexPath) as! Photo
-            let image = UIImage(data: picDatas.photoData as! Data)
-            let imageView = UIImageView(image: image)
-            cell.backgroundView = imageView
-            return cell
+            if frc2c != 0{
+                let picDatas = frc2.object(at: indexPath) as! Photo
+                let image = UIImage(data: picDatas.photoData as! Data)
+                let imageView = UIImageView(image: image)
+                cell.backgroundView = imageView
+                return cell
+            } else{
+                let image = UIImage(named: "notAvaliable")
+                let imageView = UIImageView(image: image)
+                cell.backgroundView = imageView
+                return cell
+            }
         }else if indexPath.section == 1{
-            let picDatas = frc3.object(at: IndexPath(row: indexPath.row, section: 0 )) as! Video
-            let image = UIImage(data: picDatas.videoPhoto as! Data)
-            let imageView = UIImageView(image: image)
-            cell.backgroundView = imageView
-            return cell
+            if frc3c != 0{
+                let picDatas = frc3.object(at: IndexPath(row: indexPath.row, section: 0 )) as! Video
+                let image = UIImage(data: picDatas.videoPhoto as! Data)
+                let imageView = UIImageView(image: image)
+                cell.backgroundView = imageView
+                return cell
+            } else{
+                let image = UIImage(named: "notAvaliable")
+                let imageView = UIImageView(image: image)
+                cell.backgroundView = imageView
+                return cell
+            }
         }
         
         return cell
         
     }
     
-    @IBAction func dismiss(_ sender: Any) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        dismiss(animated: true, completion: nil)
+        deleteButton.isHidden = false
+        let cell = collectionView.cellForItem(at: indexPath)
+        if cell?.isSelected == true{
+            cell?.alpha = 0.5
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        if cell?.isSelected == false{
+            cell?.alpha = 1.0
+        }
+
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        journalText.resignFirstResponder()
+        
+        if journalText.text == "No note had been created"{
+            return
+        } else if (frc1?.fetchedObjects?.count == 0) {
+            let detailJ = Note(detailJ: journalText.text, context: stack.context)
+            detailJ.location = JournalInfo.location
+        } else{
+            let object = frc1?.fetchedObjects?[0] as! Note
+            object.setValue(journalText.text, forKey: "notes")
+        }
+        save()
+        
         
     }
 
+    
+    @IBAction func addEntry(_ sender: Any) {
+        
+        let alertController = UIAlertController(title: nil, message: "Which of the following do you wanted to edit?", preferredStyle: .alert)
+        
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let photoAction = UIAlertAction(title: "Photo", style: .default) {(_) in
+            
+            let control = self.storyboard?.instantiateViewController(withIdentifier: "pictureView") as! PictureViewController
+            self.present(control, animated: true, completion: nil)
+        
+        
+        }
+        
+        let videoAction = UIAlertAction(title: "Video", style: .default) { (_) in
+            
+            let control = self.storyboard?.instantiateViewController(withIdentifier: "videoView") as! VideoViewController
+            self.present(control, animated: true, completion: nil)
+            
+        }
+        
+        
+        alertController.addAction(photoAction)
+        alertController.addAction(videoAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+
+        
+        
+    }
+    
+    @IBAction func deleteEntry(_ sender: Any) {
+        
+        deleteButton.isHidden = true
+        
+        let selectedItems = previewCollection.indexPathsForSelectedItems
+        let alertController = UIAlertController(title: nil, message: "Delete Selected Entry?", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
+            
+            for indexPath in selectedItems!{
+                
+                if indexPath.section == 0{
+                    self.stack.context.delete(self.frc2.object(at: indexPath) as! Photo)
+                } else if indexPath.section == 1{
+                    self.stack.context.delete(self.frc3.object(at: IndexPath(row: indexPath.row, section: 0)) as! Video)
+                }
+                self.save()
+                
+            }
+        
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {(_) in
+            for indexPath in selectedItems!{
+                let cell = self.previewCollection.cellForItem(at: indexPath)
+                self.previewCollection.deselectItem(at: indexPath, animated: true)
+                cell?.alpha = 1.0
+            }
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+
+    }
+  
+    
     /*
     // MARK: - Navigation
 
@@ -131,3 +273,45 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
     */
 
 }
+
+
+extension PreviewViewController{
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        insertedIndexPath = []
+        deletedIndexPath = []
+        updatedIndexPath = []
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type{
+            
+        case .insert:
+            insertedIndexPath.append(newIndexPath! as NSIndexPath)
+        case .delete:
+            deletedIndexPath.append(indexPath! as NSIndexPath)
+        case .update:
+            updatedIndexPath.append(indexPath! as NSIndexPath)
+        default: break
+        }
+    }
+    
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        previewCollection.performBatchUpdates({
+            for indexPath in self.insertedIndexPath{
+                self.previewCollection.insertItems(at: [indexPath as IndexPath])
+            }
+            
+            for indexPath in self.deletedIndexPath{
+                self.previewCollection.deleteItems(at: [indexPath as IndexPath])
+            }
+            
+            for indexPath in self.updatedIndexPath{
+                self.previewCollection.reloadItems(at: [indexPath as IndexPath])
+            }
+        }, completion: nil)
+    }
+}
+

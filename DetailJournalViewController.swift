@@ -61,38 +61,17 @@ class DetailJournalViewController: CoreDataViewController, UITableViewDelegate, 
         return cell
     }
     
-    /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.cellForRow(at: indexPath)
-        
-        let alertController = UIAlertController(title: nil, message: "Select the action you wanted to perform for \((cell?.textLabel?.text)!)", preferredStyle: .alert)
-        let viewAction = UIAlertAction(title: "View", style: .default){(_) in
-            
-            let control = self.storyboard?.instantiateViewController(withIdentifier: "detailJournal") as! DetailJournalViewController
-            JournalInfo.journalName = (cell?.textLabel?.text)!
-            self.present(control, animated: true, completion: nil)
-            
-        }
-        let deleteAction = UIAlertAction(title: "Delete", style: .default){(_) in
-            
-            self.stack.context.delete(self.fetchedResultsController?.object(at: indexPath) as! Name)
-            do{
-                try self.stack.saveContext()
-            }catch{
-                print("Error while saving")
-            }
-            
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alertController.addAction(viewAction)
-        alertController.addAction(deleteAction)
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true, completion: nil)
+        let nb = fetchedResultsController?.object(at: indexPath) as! Location
+        JournalInfo.location = nb
+        JournalInfo.lat = nb.lat
+        JournalInfo.long = nb.long
+        let control = storyboard?.instantiateViewController(withIdentifier: "preview") as! PreviewViewController
+        present(control, animated: true, completion: nil)
         
         
-    }*/
+    }
 
 
     /*

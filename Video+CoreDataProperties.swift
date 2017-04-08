@@ -16,7 +16,7 @@ extension Video {
         return NSFetchRequest<Video>(entityName: "Video")
     }
 
-    @NSManaged public var videoPhoto: NSData?
+    @NSManaged public var videoPhoto: Data?
     @NSManaged public var videoData: NSData?
     @NSManaged public var location: Location?
 

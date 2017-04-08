@@ -25,6 +25,9 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
     var data = [venue]()
     var long: Double!
     var lat: Double!
+    var localTimeZoneName: String {
+        return TimeZone.current.identifier
+    }
     
     override func viewDidLoad() {
         
@@ -220,11 +223,11 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         }
     }
     
-    func getDate() -> NSDate{
+    func getDate() -> Date{
         
-        let date = Date().timeIntervalSinceReferenceDate
+        let date = Date()
         
-        return NSDate(timeIntervalSinceReferenceDate: date)
+        return date
         
     }
 

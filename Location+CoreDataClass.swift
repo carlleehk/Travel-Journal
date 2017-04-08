@@ -12,7 +12,7 @@ import CoreData
 @objc(Location)
 public class Location: NSManagedObject {
     
-    convenience init(lat: Double, long: Double, name: String, date: NSDate, context: NSManagedObjectContext){
+    convenience init(lat: Double, long: Double, name: String, date: Date, context: NSManagedObjectContext){
         
         if let ent = NSEntityDescription.entity(forEntityName: "Location", in: context){
             

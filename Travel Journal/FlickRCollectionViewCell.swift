@@ -14,4 +14,6 @@ class FlickRCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var headerLabel: UILabel!
     
+    @IBOutlet weak var navigation: UINavigationBar!
+    
 }

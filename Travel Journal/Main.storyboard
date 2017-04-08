@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="crf-uL-Hv3" id="H4k-6h-gOI">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -241,7 +241,7 @@
         <!--Text Editor View Controller-->
         <scene sceneID="lF4-PG-6Rq">
             <objects>
-                <viewController id="Ypa-Kh-xwC" customClass="TextEditorViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="notesView" id="Ypa-Kh-xwC" customClass="TextEditorViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U77-jf-SXp"/>
                         <viewControllerLayoutGuide type="bottom" id="Baa-i3-2ZE"/>
@@ -371,7 +371,7 @@
         <!--Preview View Controller-->
         <scene sceneID="dsQ-7L-qHl">
             <objects>
-                <viewController id="v9w-N1-36d" customClass="PreviewViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="preview" id="v9w-N1-36d" customClass="PreviewViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gIx-kL-ZKj"/>
                         <viewControllerLayoutGuide type="bottom" id="viF-b5-Eom"/>
@@ -384,9 +384,9 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
                                     <navigationItem id="vLc-0f-eHE">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="7ZP-XU-kJN">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="7ZP-XU-kJN">
                                             <connections>
-                                                <action selector="dismiss:" destination="v9w-N1-36d" id="Zvh-Wb-R0f"/>
+                                                <action selector="addEntry:" destination="v9w-N1-36d" id="XZd-Mi-PXq"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="2tj-8B-nCk">
@@ -453,7 +453,7 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="04J-Eo-b0F">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="04J-Eo-b0F">
                                 <rect key="frame" x="0.0" y="69" width="414" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -463,10 +463,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiF-TE-DEM">
+                                <rect key="frame" x="20" y="706" width="374" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1m5-09-cvJ"/>
+                                </constraints>
+                                <state key="normal" title="Delete Photos/Videos"/>
+                                <connections>
+                                    <action selector="deleteEntry:" destination="v9w-N1-36d" eventType="touchUpInside" id="9Y8-cQ-inH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="18U-3s-lSq" firstAttribute="leading" secondItem="2gy-Kv-TpA" secondAttribute="leading" id="07N-t6-5dq"/>
+                            <constraint firstItem="viF-b5-Eom" firstAttribute="top" secondItem="eiF-TE-DEM" secondAttribute="bottom" id="4F0-91-LqR"/>
                             <constraint firstAttribute="trailing" secondItem="04J-Eo-b0F" secondAttribute="trailing" id="7tb-1G-L8I"/>
                             <constraint firstAttribute="trailing" secondItem="Nyj-Nb-H4G" secondAttribute="trailing" id="Iqb-80-3p5"/>
                             <constraint firstItem="04J-Eo-b0F" firstAttribute="leading" secondItem="2gy-Kv-TpA" secondAttribute="leading" id="RWT-FP-Bx0"/>
@@ -474,11 +485,15 @@
                             <constraint firstItem="Nyj-Nb-H4G" firstAttribute="top" secondItem="gIx-kL-ZKj" secondAttribute="bottom" id="a3e-4d-6mu"/>
                             <constraint firstAttribute="trailing" secondItem="18U-3s-lSq" secondAttribute="trailing" id="kZS-oe-ZQt"/>
                             <constraint firstItem="04J-Eo-b0F" firstAttribute="top" secondItem="Nyj-Nb-H4G" secondAttribute="bottom" constant="5" id="nld-cm-EaH"/>
+                            <constraint firstItem="eiF-TE-DEM" firstAttribute="leading" secondItem="2gy-Kv-TpA" secondAttribute="leadingMargin" id="otb-5K-6TT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eiF-TE-DEM" secondAttribute="trailing" id="uPY-GX-DO3"/>
                             <constraint firstItem="viF-b5-Eom" firstAttribute="top" secondItem="18U-3s-lSq" secondAttribute="bottom" constant="10" id="xTl-Rr-OTc"/>
                             <constraint firstItem="18U-3s-lSq" firstAttribute="top" secondItem="04J-Eo-b0F" secondAttribute="bottom" constant="5" id="yzs-iE-UY5"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deleteButton" destination="eiF-TE-DEM" id="hgQ-gy-biP"/>
+                        <outlet property="editButton" destination="7ZP-XU-kJN" id="bxb-zK-RsL"/>
                         <outlet property="journalText" destination="04J-Eo-b0F" id="coN-1Z-qae"/>
                         <outlet property="layOut" destination="CJI-bF-3Jy" id="UOI-OB-onF"/>
                         <outlet property="previewCollection" destination="18U-3s-lSq" id="Cwv-8M-DeY"/>
@@ -491,7 +506,7 @@
         <!--Picture View Controller-->
         <scene sceneID="OnS-zf-eco">
             <objects>
-                <viewController id="VzW-lp-Bqk" customClass="PictureViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pictureView" id="VzW-lp-Bqk" customClass="PictureViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MvI-EX-RgQ"/>
                         <viewControllerLayoutGuide type="bottom" id="YW8-g6-E8P"/>
@@ -647,7 +662,7 @@
         <!--Video View Controller-->
         <scene sceneID="t9q-ew-Zar">
             <objects>
-                <viewController id="44v-zO-AgM" customClass="VideoViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="videoView" id="44v-zO-AgM" customClass="VideoViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z9C-w6-pCG"/>
                         <viewControllerLayoutGuide type="bottom" id="BBU-vc-oes"/>
