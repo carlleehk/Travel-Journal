@@ -13,7 +13,11 @@ class PictureViewCollectionViewController: ChooseScreenViewController, UICollect
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var FlickRFlow: UICollectionViewFlowLayout!
+    
     var imageAddress: [String] = []
+    var messageFrame = UIView()
+    var strLabel = UILabel()
+    var activityIndicator = UIActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +30,13 @@ class PictureViewCollectionViewController: ChooseScreenViewController, UICollect
         collectionView.dataSource = self
         label.isHidden = true
         
+        progressBarDisplay(msg: "Downloading FlickR Image", indicator: true)
         fetchNewImage()
         
         collectionView.allowsMultipleSelection = true
 
         // Do any additional setup after loading the view.
+        
         let space: CGFloat = 1.5
         let dimension = view.frame.size.width >= view.frame.size.height ? (view.frame.size.width - (5 * space)) / 6.0 : (view.frame.size.width - (2*space))/3.0
         FlickRFlow.minimumInteritemSpacing = space
@@ -95,13 +101,35 @@ class PictureViewCollectionViewController: ChooseScreenViewController, UICollect
                     }
                 } else{
                     print("some error: \(String(describing: error?.localizedDescription))")
+                    let alertController = UIAlertController(title: "Error", message: "Network Request Error", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alertController, animated: true, completion: nil)
                 }
+                self.messageFrame.removeFromSuperview()
             }
         }
+    }
+    
+    func progressBarDisplay(msg: String, indicator: Bool){
         
+        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 300, height: 50))
+        strLabel.text = msg
+        strLabel.textColor = UIColor.white
+        messageFrame = UIView(frame: CGRect(x: view.frame.midX  - 140, y: view.frame.midY - 25, width: 280, height: 50))
+        messageFrame.layer.cornerRadius = 15
+        messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
+        if indicator {
+            activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
+            activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+            activityIndicator.startAnimating()
+            messageFrame.addSubview(activityIndicator)
+        }
         
+        messageFrame.addSubview(strLabel)
+        view.addSubview(messageFrame)
         
     }
+
 
     @IBAction func dismiss(_ sender: Any) {
         

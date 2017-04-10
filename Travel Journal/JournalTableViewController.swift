@@ -12,6 +12,7 @@ import CoreData
 class JournalTableViewController: CoreDataViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    
     let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Name")
 
     override func viewDidLoad() {
@@ -98,6 +99,8 @@ class JournalTableViewController: CoreDataViewController, UITableViewDelegate, U
 
      
     }
+    
+    
     
     func presentAlert(entryExist: Bool, object: Name?){
         

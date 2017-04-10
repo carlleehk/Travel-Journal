@@ -29,6 +29,10 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         return TimeZone.current.identifier
     }
     
+    var messageFrame = UIView()
+    var strLabel = UILabel()
+    var activityIndicator = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -72,8 +76,6 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         
         locValue = (manager.location?.coordinate)!
         locationManager.stopUpdatingLocation()
-        
-        
             
         FourSquareClient.sharedInstance().getVenue(lat: self.locValue!.latitude, long: self.locValue!.longitude, searchString: nil){(success, error) in
                 
@@ -83,7 +85,12 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
                     self.locationName.reloadData()
                 } else{
                     print("There is an error: \((error?.localizedDescription)!)")
+                    let alertController = UIAlertController(title: "Error", message: "Network Request Error", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alertController, animated: true, completion: nil)
+
                 }
+                self.messageFrame.removeFromSuperview()
             }
         }
         
@@ -115,6 +122,7 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
+            progressBarDisplay(msg: "Getting Location", indicator: true)
         }
 
     }
@@ -182,6 +190,7 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         
         let search = searchLocation.text
         textField.resignFirstResponder()
+        progressBarDisplay(msg: "Getting Location", indicator: true)
         
         FourSquareClient.sharedInstance().getVenue(lat: nil, long: nil, searchString: search){(success, error) in
                 
@@ -197,8 +206,9 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
                         textField.text = ""
                         
                     }
-                }
-                }
+                    self.messageFrame.removeFromSuperview()
+            }
+        }
                 
         return true
     }
@@ -230,6 +240,27 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         return date
         
     }
+    
+    func progressBarDisplay(msg: String, indicator: Bool){
+        
+        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 240, height: 50))
+        strLabel.text = msg
+        strLabel.textColor = UIColor.white
+        messageFrame = UIView(frame: CGRect(x: view.frame.midX  - 110, y: view.frame.midY - 25, width: 200, height: 50))
+        messageFrame.layer.cornerRadius = 15
+        messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
+        if indicator {
+            activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
+            activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+            activityIndicator.startAnimating()
+            messageFrame.addSubview(activityIndicator)
+        }
+        
+        messageFrame.addSubview(strLabel)
+        view.addSubview(messageFrame)
+        
+    }
+
 
     
     /*
