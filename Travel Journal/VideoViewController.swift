@@ -55,16 +55,22 @@ class VideoViewController: ChooseScreenViewController, UIImagePickerControllerDe
             
             let videoURL = info[UIImagePickerControllerMediaURL] as! URL
             do {
-                print(videoURL)
+                
+                //create preview picture
                 let asset = AVURLAsset(url: videoURL)
                 let generator = AVAssetImageGenerator(asset: asset)
                 let cgImage = try generator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
                 let image = UIImage(cgImage: cgImage)
-                
-                
                 let data = UIImagePNGRepresentation(image)
-                //let video = try Data(contentsOf: videoURL, options: .mappedIfSafe)
-                let videoData = Video(video: videoURL.absoluteString, pic: data, context: stack.context)
+                
+                let video = try Data(contentsOf: videoURL, options: .mappedIfSafe)
+                let paths = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
+                let outputURL = paths.appendingPathComponent("movie\(JournalInfo.runTime!).mov")
+                JournalInfo.runTime = JournalInfo.runTime + 1
+                
+                try video.write(to: outputURL!)
+                
+                let videoData = Video(video: outputURL?.absoluteString, pic: data, context: stack.context)
                 videoData.location = JournalInfo.location
                 print(videoData)
                 save() 

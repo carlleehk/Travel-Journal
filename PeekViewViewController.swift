@@ -17,6 +17,8 @@ class PeekViewViewController: CoreDataViewController {
     var photo: Photo?
     var video: Video?
     var isVideo: Bool?
+    var initiatingPreviewActionController: UIViewController?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,17 +54,23 @@ class PeekViewViewController: CoreDataViewController {
         if isVideo!{
             let viewAction = UIPreviewAction(title: "Play Video", style: .default) { (action, viewController) -> Void in
                 print("You selected the photo")
-                let control = self.storyboard?.instantiateViewController(withIdentifier: "peekPlayer") as! PeekPlayerViewController
-                control.video = self.video
-                self.present(control, animated: true, completion: nil)
+                guard let initiatingPreviewActionController = self.initiatingPreviewActionController else {
+                    assert(false, "Expected initiatingPreviewActionController to be set")
+                    return
+                }
                 
-                /*let videoURL = URL(string: (self.video?.videoData)!)
+                /*let control = self.storyboard?.instantiateViewController(withIdentifier: "peekPlayer") as! PeekPlayerViewController
+                control.video = self.video
+                control.initiatingPreviewActionController = initiatingPreviewActionController
+                initiatingPreviewActionController.present(control, animated: true, completion: nil)*/
+                
+                let videoURL = URL(string: (self.video?.videoData)!)
                 let player = AVPlayer(url: videoURL!)
                 let playerViewController = AVPlayerViewController()
                 playerViewController.player = player
-                self.present(playerViewController, animated: true, completion: {
+                initiatingPreviewActionController.present(playerViewController, animated: true, completion: {
                     playerViewController.player!.play()
-                })*/
+                })
             }
             
             return[viewAction, deleteAction]

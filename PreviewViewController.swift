@@ -228,6 +228,7 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         
         let videoData = frc3.object(at: IndexPath(row: indexPath.row, section: 0 )) as! Video
         control.video = videoData
+        control.initiatingPreviewActionController = self
         control.isVideo = true
         control.preferredContentSize = CGSize(width: 0.0, height: 300)
         

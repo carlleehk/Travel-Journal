@@ -8,7 +8,7 @@
         <relationship name="name" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Name" inverseName="location" inverseEntity="Name" syncable="YES"/>
         <relationship name="note" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="location" inverseEntity="Note" syncable="YES"/>
         <relationship name="photo" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Photo" inverseName="location" inverseEntity="Photo" syncable="YES"/>
-        <relationship name="video" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Video" inverseName="location" inverseEntity="Video" syncable="YES"/>
+        <relationship name="video" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Video" inverseName="location" inverseEntity="Video" syncable="YES"/>
     </entity>
     <entity name="Name" representedClassName="Name" syncable="YES">
         <attribute name="journalName" attributeType="String" indexed="YES" syncable="YES"/>
