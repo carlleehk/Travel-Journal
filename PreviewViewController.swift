@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextViewDelegate {
+class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextViewDelegate, UIViewControllerPreviewingDelegate {
     
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var editButton: UIBarButtonItem!
@@ -27,6 +27,8 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
     let fr3 = NSFetchRequest<NSFetchRequestResult>(entityName: "Video")
     var frc1, frc2, frc3: NSFetchedResultsController<NSFetchRequestResult>!
     
+    var alert: UIAlertController?
+
     
 
     override func viewDidLoad() {
@@ -39,6 +41,13 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         
         previewCollection.allowsMultipleSelection = true
         deleteButton.isHidden = true
+        
+        //Set up 3D Touch
+        if traitCollection.forceTouchCapability != .available {
+            registerForPreviewing(with: self, sourceView: view)
+        } else{
+            alert = UIAlertController(title: "Error", message: "3D Touch not avaliable on this device.", preferredStyle: .alert)
+        }
         
         //set up fetch result controller
         fr1.sortDescriptors = []
@@ -75,6 +84,19 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         layOut.minimumLineSpacing = space
         layOut.itemSize = CGSize(width: dimension, height: dimension)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Present the alert if necessary.
+        if let alert = alert {
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            
+            // Clear the `alertController` to ensure it's not presented multiple times.
+            self.alert = nil
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -87,8 +109,8 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        var frc2c = frc2.fetchedObjects?.count
-        var frc3c = frc3.fetchedObjects?.count
+        let frc2c = frc2.fetchedObjects?.count
+        let frc3c = frc3.fetchedObjects?.count
 
         
         if section == 0{
@@ -121,15 +143,15 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        var frc2c = frc2.fetchedObjects?.count
-        var frc3c = frc3.fetchedObjects?.count
+        let frc2c = frc2.fetchedObjects?.count
+        let frc3c = frc3.fetchedObjects?.count
 
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "preview", for: indexPath)
         if indexPath.section == 0{
             if frc2c != 0{
                 let picDatas = frc2.object(at: indexPath) as! Photo
-                let image = UIImage(data: picDatas.photoData as! Data)
+                let image = UIImage(data: picDatas.photoData!)
                 let imageView = UIImageView(image: image)
                 cell.backgroundView = imageView
                 return cell
@@ -142,7 +164,7 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         }else if indexPath.section == 1{
             if frc3c != 0{
                 let picDatas = frc3.object(at: IndexPath(row: indexPath.row, section: 0 )) as! Video
-                let image = UIImage(data: picDatas.videoPhoto as! Data)
+                let image = UIImage(data: picDatas.videoPhoto!)
                 let imageView = UIImageView(image: image)
                 cell.backgroundView = imageView
                 return cell
@@ -173,6 +195,54 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
             cell?.alpha = 1.0
         }
 
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        
+        guard let indexPath = previewCollection.indexPathForItem(at: CGPoint(x: location.x, y: location.y - previewCollection.frame.minY + previewCollection.contentOffset.y)) else{
+            return nil
+        }
+        guard let cell = previewCollection.cellForItem(at: indexPath) else{
+            return nil
+        }
+       
+        
+        if indexPath.section == 0{
+            let control = storyboard?.instantiateViewController(withIdentifier: "peekView") as! PeekViewViewController
+            
+            
+            let picDatas = frc2.object(at: IndexPath(row: indexPath.row, section: 0 )) as! Photo
+            control.photo = picDatas
+            control.isVideo = false
+            control.preferredContentSize = CGSize(width: 0.0, height: 300)
+            
+            previewingContext.sourceRect = cell.frame
+            
+            return control
+
+        }
+        
+        let control = storyboard?.instantiateViewController(withIdentifier: "peekView") as! PeekViewViewController
+        
+        
+        let videoData = frc3.object(at: IndexPath(row: indexPath.row, section: 0 )) as! Video
+        control.video = videoData
+        control.isVideo = true
+        control.preferredContentSize = CGSize(width: 0.0, height: 300)
+        
+        previewingContext.sourceRect = cell.frame
+        
+        return control
+        
+        
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        
+        //no popping action for this project
+        //show(viewControllerToCommit, sender: self)
+        
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

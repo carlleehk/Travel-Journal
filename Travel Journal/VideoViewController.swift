@@ -24,7 +24,15 @@ class VideoViewController: ChooseScreenViewController, UIImagePickerControllerDe
     }
     
     @IBAction func takingVideo(_ sender: Any) {
-        pickingVideo(sourceType: UIImagePickerControllerSourceType.camera)
+        if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+            let alertController = UIAlertController(title: "Error", message: "Video Camera is not avaliable for use, please choose other sosurce.", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            present(alertController, animated: true, completion: nil)
+        } else{
+            pickingVideo(sourceType: UIImagePickerControllerSourceType.camera)
+        }
+
     }
     
     @IBAction func videoLibrary(_ sender: Any) {
@@ -55,8 +63,8 @@ class VideoViewController: ChooseScreenViewController, UIImagePickerControllerDe
                 
                 
                 let data = UIImagePNGRepresentation(image)
-                let video = try NSData(contentsOf: videoURL, options: .mappedIfSafe)
-                let videoData = Video(video: video, pic: data, context: stack.context)
+                //let video = try Data(contentsOf: videoURL, options: .mappedIfSafe)
+                let videoData = Video(video: videoURL.absoluteString, pic: data, context: stack.context)
                 videoData.location = JournalInfo.location
                 print(videoData)
                 save() 

@@ -139,7 +139,7 @@ class PictureViewCollectionViewController: ChooseScreenViewController, UICollect
             
             let pictureURL = URL(string: imageAddress[index.item])
             let data = try? Data(contentsOf: pictureURL!)
-            let imageData = Photo(photo: data! as NSData, context: stack.context)
+            let imageData = Photo(photo: data!, context: stack.context)
             imageData.location = JournalInfo.location
             print(imageData)
             save()

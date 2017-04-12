@@ -23,7 +23,7 @@
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="photo" inverseEntity="Location" syncable="YES"/>
     </entity>
     <entity name="Video" representedClassName="Video" syncable="YES">
-        <attribute name="videoData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="videoData" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="videoPhoto" optional="YES" attributeType="Binary" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="video" inverseEntity="Location" syncable="YES"/>
     </entity>

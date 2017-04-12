@@ -23,21 +23,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4CE-gW-2bf">
-                                <rect key="frame" x="20" y="64" width="374" height="672"/>
+                                <rect key="frame" x="20" y="108" width="374" height="628"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="JournalCell" id="crf-uL-Hv3">
                                         <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="crf-uL-Hv3" id="H4k-6h-gOI">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDf-Kd-lDD">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="44"/>
                                 <items>
                                     <navigationItem id="KUV-8t-4Ia">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LDV-ia-QS7">
@@ -381,7 +381,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nyj-Nb-H4G">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="44"/>
                                 <items>
                                     <navigationItem id="vLc-0f-eHE">
                                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="7ZP-XU-kJN">
@@ -398,7 +398,7 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="18U-3s-lSq">
-                                <rect key="frame" x="0.0" y="202" width="414" height="524"/>
+                                <rect key="frame" x="0.0" y="246" width="414" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CJI-bF-3Jy">
                                     <size key="itemSize" width="50" height="50"/>
@@ -454,7 +454,7 @@
                                 </collectionReusableView>
                             </collectionView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="04J-Eo-b0F">
-                                <rect key="frame" x="0.0" y="69" width="414" height="128"/>
+                                <rect key="frame" x="0.0" y="113" width="414" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="NP9-d6-Dua"/>
@@ -491,17 +491,77 @@
                             <constraint firstItem="18U-3s-lSq" firstAttribute="top" secondItem="04J-Eo-b0F" secondAttribute="bottom" constant="5" id="yzs-iE-UY5"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="cvi-gf-CYl"/>
                     <connections>
                         <outlet property="deleteButton" destination="eiF-TE-DEM" id="hgQ-gy-biP"/>
                         <outlet property="editButton" destination="7ZP-XU-kJN" id="bxb-zK-RsL"/>
                         <outlet property="journalText" destination="04J-Eo-b0F" id="coN-1Z-qae"/>
                         <outlet property="layOut" destination="CJI-bF-3Jy" id="UOI-OB-onF"/>
                         <outlet property="previewCollection" destination="18U-3s-lSq" id="Cwv-8M-DeY"/>
+                        <segue destination="ZET-T1-Wld" kind="show" id="fae-6j-D9e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B0c-8r-zT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4618.840579710145" y="-1890.4891304347827"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xyc-m0-gD1">
+            <objects>
+                <navigationController id="Jxu-6w-Pdf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5ob-no-JI8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="v9w-N1-36d" kind="relationship" relationship="rootViewController" id="Glb-7Y-r2s"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zjr-W0-v4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4619" y="-2662"/>
+        </scene>
+        <!--peekView-->
+        <scene sceneID="HG1-eC-wdZ">
+            <objects>
+                <viewController storyboardIdentifier="peekView" title="peekView" id="ZET-T1-Wld" customClass="PeekViewViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y11-Dw-KIg"/>
+                        <viewControllerLayoutGuide type="bottom" id="tuh-tm-JyB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bwR-Fc-0Ka">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gSa-C2-Tkt">
+                                <rect key="frame" x="10" y="74" width="394" height="652"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gSa-C2-Tkt" secondAttribute="trailing" constant="10" id="AOb-8I-J9P"/>
+                            <constraint firstItem="gSa-C2-Tkt" firstAttribute="leading" secondItem="bwR-Fc-0Ka" secondAttribute="leading" constant="10" id="N3t-Wo-uvv"/>
+                            <constraint firstItem="tuh-tm-JyB" firstAttribute="top" secondItem="gSa-C2-Tkt" secondAttribute="bottom" constant="10" id="q9G-xD-9qz"/>
+                            <constraint firstItem="gSa-C2-Tkt" firstAttribute="top" secondItem="Y11-Dw-KIg" secondAttribute="bottom" constant="10" id="uTb-P3-gB7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KPv-5u-FXF"/>
+                    <connections>
+                        <outlet property="image" destination="gSa-C2-Tkt" id="hQh-pV-oni"/>
+                        <segue destination="0LJ-Wf-fMX" kind="show" id="T1j-eQ-oI6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y4u-S8-WKZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6077" y="-2411"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="I5Y-Pt-CiZ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NQS-ed-kAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <avPlayerViewController storyboardIdentifier="peekPlayer" videoGravity="AVLayerVideoGravityResizeAspect" id="0LJ-Wf-fMX" customClass="PeekPlayerViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="6807" y="-2411"/>
         </scene>
         <!--Picture View Controller-->
         <scene sceneID="OnS-zf-eco">
@@ -730,4 +790,7 @@
         <image name="video" width="128" height="128"/>
         <image name="videoLibrary" width="128" height="128"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Glb-7Y-r2s"/>
+    </inferredMetricsTieBreakers>
 </document>

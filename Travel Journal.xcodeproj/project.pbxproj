@@ -18,6 +18,7 @@
 		7A0449AC1E830389003365AC /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449AB1E830389003365AC /* Client.swift */; };
 		7A0449AE1E8303C6003365AC /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0449AD1E8303C6003365AC /* Convenience.swift */; };
 		7A05E3161E834D2C00989CE9 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05E3151E834D2C00989CE9 /* Data.swift */; };
+		7A1490FD1E9D1B9700519244 /* PeekViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1490FC1E9D1B9700519244 /* PeekViewViewController.swift */; };
 		7A4DA3AC1E96A8230024E98D /* Video+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4DA3A41E96A8230024E98D /* Video+CoreDataClass.swift */; };
 		7A4DA3AD1E96A8230024E98D /* Video+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4DA3A51E96A8230024E98D /* Video+CoreDataProperties.swift */; };
 		7A4DA3AE1E96A8230024E98D /* Name+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4DA3A61E96A8230024E98D /* Name+CoreDataProperties.swift */; };
@@ -26,6 +27,7 @@
 		7A4DA3B11E96A8230024E98D /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4DA3A91E96A8230024E98D /* Location+CoreDataProperties.swift */; };
 		7A4DA3B21E96A8230024E98D /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4DA3AA1E96A8230024E98D /* Note+CoreDataClass.swift */; };
 		7A4DA3B31E96A8230024E98D /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4DA3AB1E96A8230024E98D /* Note+CoreDataProperties.swift */; };
+		7A512EC31E9DACDC00620BE6 /* PeekPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A512EC21E9DACDB00620BE6 /* PeekPlayerViewController.swift */; };
 		7A5C7B271E86A0AF00819305 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C7B261E86A0AE00819305 /* PictureViewController.swift */; };
 		7A6895C11E8EF9E3007586FD /* JournalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6895C01E8EF9E3007586FD /* JournalTableViewController.swift */; };
 		7A6895C41E8EFAAA007586FD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A6895C21E8EFAAA007586FD /* Model.xcdatamodeld */; };
@@ -83,6 +85,7 @@
 		7A0449AB1E830389003365AC /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		7A0449AD1E8303C6003365AC /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		7A05E3151E834D2C00989CE9 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		7A1490FC1E9D1B9700519244 /* PeekViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeekViewViewController.swift; path = ../PeekViewViewController.swift; sourceTree = "<group>"; };
 		7A4DA3A31E96A4F80024E98D /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
 		7A4DA3A41E96A8230024E98D /* Video+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Video+CoreDataClass.swift"; path = "../Video+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7A4DA3A51E96A8230024E98D /* Video+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Video+CoreDataProperties.swift"; path = "../Video+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 		7A4DA3AA1E96A8230024E98D /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataClass.swift"; path = "../Note+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7A4DA3AB1E96A8230024E98D /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "../Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7A4DA3B41E970DF00024E98D /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
+		7A512EC21E9DACDB00620BE6 /* PeekPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekPlayerViewController.swift; sourceTree = "<group>"; };
 		7A5C7B261E86A0AE00819305 /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		7A6895C01E8EF9E3007586FD /* JournalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalTableViewController.swift; sourceTree = "<group>"; };
 		7A6895C31E8EFAAA007586FD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 		7A04496C1E830082003365AC = {
 			isa = PBXGroup;
 			children = (
+				7A512EC21E9DACDB00620BE6 /* PeekPlayerViewController.swift */,
 				7A0449771E830082003365AC /* Travel Journal */,
 				7A04498C1E830082003365AC /* Travel JournalTests */,
 				7A0449971E830082003365AC /* Travel JournalUITests */,
@@ -252,6 +257,7 @@
 				7AE56BD41E8D514300E538A5 /* VideoViewController.swift */,
 				7A6895C01E8EF9E3007586FD /* JournalTableViewController.swift */,
 				7A7244CD1E947115005A2ABA /* PreviewViewController.swift */,
+				7A1490FC1E9D1B9700519244 /* PeekViewViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -410,6 +416,8 @@
 				7A4DA3AE1E96A8230024E98D /* Name+CoreDataProperties.swift in Sources */,
 				7AC71B321E8F08D10081BBB7 /* Location+CoreDataClass.swift in Sources */,
 				7AF8FAD41E9089E40015919D /* DetailJournalViewController.swift in Sources */,
+				7A1490FD1E9D1B9700519244 /* PeekViewViewController.swift in Sources */,
+				7A512EC31E9DACDC00620BE6 /* PeekPlayerViewController.swift in Sources */,
 				7A6895C11E8EF9E3007586FD /* JournalTableViewController.swift in Sources */,
 				7A0449A71E83013F003365AC /* MapViewController.swift in Sources */,
 				7A0449791E830082003365AC /* AppDelegate.swift in Sources */,
@@ -573,7 +581,7 @@
 				DEVELOPMENT_TEAM = T46SFMZQ7Z;
 				INFOPLIST_FILE = "Travel Journal/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "carl.Travel-Journal";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carl.Travel-Journal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -586,7 +594,7 @@
 				DEVELOPMENT_TEAM = T46SFMZQ7Z;
 				INFOPLIST_FILE = "Travel Journal/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "carl.Travel-Journal";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carl.Travel-Journal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

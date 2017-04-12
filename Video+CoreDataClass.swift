@@ -12,7 +12,7 @@ import CoreData
 @objc(Video)
 public class Video: NSManagedObject {
 
-    convenience init(video: NSData?, pic: Data?, context: NSManagedObjectContext){
+    convenience init(video: String?, pic: Data?, context: NSManagedObjectContext){
         
         if let ent = NSEntityDescription.entity(forEntityName: "Video", in: context){
             

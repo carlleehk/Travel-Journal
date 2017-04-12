@@ -17,7 +17,7 @@ extension Video {
     }
 
     @NSManaged public var videoPhoto: Data?
-    @NSManaged public var videoData: NSData?
+    @NSManaged public var videoData: String?
     @NSManaged public var location: Location?
 
 }

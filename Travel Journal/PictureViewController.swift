@@ -29,7 +29,16 @@ class PictureViewController: ChooseScreenViewController, UIImagePickerController
     }
     
     @IBAction func takePicture(_ sender: Any) {
-        pickingPicture(sourceType: UIImagePickerControllerSourceType.camera)
+        
+        if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+            let alertController = UIAlertController(title: "Error", message: "Camera is not avaliable for use, please choose other sosurce.", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            present(alertController, animated: true, completion: nil)
+        } else{
+            pickingPicture(sourceType: UIImagePickerControllerSourceType.camera)
+        }
+        
     }
 
     @IBAction func Album(_ sender: Any) {
@@ -50,7 +59,7 @@ class PictureViewController: ChooseScreenViewController, UIImagePickerController
         if let imagePick = info[UIImagePickerControllerOriginalImage] as? UIImage{
             
             let data = UIImagePNGRepresentation(imagePick)
-            let imageData = Photo(photo: data as! NSData, context: stack.context)
+            let imageData = Photo(photo: data!, context: stack.context)
             imageData.location = JournalInfo.location
             print(imageData)
             save()
