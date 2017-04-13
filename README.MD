@@ -1,30 +1,73 @@
 ## Synopsis
 
+Travel Journal is result of **You Decided** lesson of **Udacity's iOS Developer Nanodegree** course.
+
+The app allows user to add Journal based on their current location or location they chose from the FourSquare API. In addition to adding the location data, they can also add video, picture (either from user library, taken by camera or FlickR API) and notes assiociated with the location chosen. This app also implemented the use of 3D touch in order for user to peek a larger photo and also ability to view the video with the associated thumbnail. 
+
+## Implementation 
+
+Travel Journal has 10 view controller screens:
+
+* Journal Table View Controller - Allow the user to add new journal; view, edit or delete current journal.
+
+   When the user add the + button, it will present the alert asking user to type the name of the new journal. If the user didn't type anything, it will present an error message and ask the user to type the name again until something is inputed. Then it will transited to Map View Controller Scene
+   
+   When the user tap the name of an existing journal, it will present the alert asking if the user wanted to edit, view or delete the journal. If the user chose edit, it will allow user to change the name of the journal with the same logic as adding a new journal. If the user chose view it will transit the user to the detail journal scene. If the user chose delete, it will delete the journal from core data. 
+   
+* Detail Journal View Controller - Allow user to add new location; view or delete an existing location.
+
+   If the user tap the done button, it will dismiss to the Journal Table scene. 
+   
+   When the user tap the add button, it will present the map view scene.
+   
+   When the user tap the existing location name from the table, it will present an alert where user can chose from view or delete action. With the view action, it will present the Preview View Controller. With the delete action, it will delete the location and its associated data from core data.
+   
+* Map View Controller - Allow user to add location based on current location or the location user tap. All location are based on fourSquare API search result.
+
+   If the user tap the search button in the map, it will populated the data using the API based on current location
+   
+   If the user enter text in the text field, it will populated the data using the API based on location typed.
+   
+   User then chose the location name on the table and tap the next button to present the choose screen view.
+
+* Choose Screen View Controller - User can choose between adding picture, video or notes based on the icon tapped. 
+
+   If user tap the Preview button, it will present the preview view scene.
+
+* Picture View Controller - Allow user to take picture, choose picture from library or choose picture from FlickR
+
+   If user tap the Done button, it will dismiss to Choose Screen. If the camera source is not avaliable, it will present the alert controller to alert user that camera is not avaliable
+   
+* Picture View Collection View Controller  - Allow user to choose picture from FlickR base on the location.
+
+   If user tap the Done button, it will dismiss to Picture View Controller
+
+* Video View Controller - Similar to Picture View Controller, where use can take video, or choose video from library
+
+* Text Editor View Controller - Allow user to type in their own travel experience
+
+   When user click done, it will dismiss to Choose Scene and the notes will be saved to Core Data.
+   
+* Preview View Controller - Allow user to edit the notes, choose photo/video to delete, and 3D view to peek photo and video.
+
+   When user tap the add button, it will present an alert controller, where user can choose to add picture or video. It will present the Picture view screen/Video View Screen based on action choosen.
+   
+   When user tap the done button, it will present the Detail Journal View
+   
+   When user press on Photo or video, it will present a button for user to delete one/multiple photos/videos.
+   
+   When user hard press on photo or video, it will present a larger view of the picture/video thrumnail using 3D touch function. The preview action allow user to delete the select photo or video. In addition, if the item is a video, it also allow user to play the video with the preview action.
+   
+   Keyboard will show if user tap the notes textview, and will disappear if user touch outside of the keyboard and when the keyboard dismiss, the new notes will replace the old notes in core data
+
+* PeekView - A screen that is required by using 3D touch, it is unreachable except by using 3D touch
 
 
-## Code Example
+## Requirement 
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
-
-## Motivation
-
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
-
-## Installation
-
-Provide code examples and explanations of how to get the project.
-
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-## Tests
-
-Describe and show how to run the tests with code examples.
-
-## Contributors
-
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
+* Xcode8
+* Swift 3.0
+* iOS 9 or above
 
 ## License
 
