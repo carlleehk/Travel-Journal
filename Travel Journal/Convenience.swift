@@ -25,7 +25,6 @@ extension FourSquareClient{
                 completionHandlerForGetVenue(nil, error)
             } else{
                 guard let info = results?["response"]! as? [String: Any], let venues = info["venues"] as? [[String: Any]] else{
-                    print("... \(error?.localizedDescription)")
                     return
                 }
                 

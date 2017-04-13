@@ -362,6 +362,7 @@
                     </view>
                     <connections>
                         <outlet property="detailedTable" destination="QYV-X8-YzT" id="cb5-Wv-42Q"/>
+                        <outlet property="titleItem" destination="toR-Tv-d06" id="PtX-PV-4KK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMc-1h-T0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -398,7 +399,7 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="18U-3s-lSq">
-                                <rect key="frame" x="0.0" y="202" width="414" height="524"/>
+                                <rect key="frame" x="0.0" y="202" width="414" height="534"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CJI-bF-3Jy">
                                     <size key="itemSize" width="50" height="50"/>
@@ -437,7 +438,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyU-t5-Tav">
-                                            <rect key="frame" x="13" y="11.333333333333332" width="388" height="28.666666666666668"/>
+                                            <rect key="frame" x="13" y="11" width="388" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -465,6 +466,7 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiF-TE-DEM">
                                 <rect key="frame" x="20" y="706" width="374" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1m5-09-cvJ"/>
                                 </constraints>
@@ -477,17 +479,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="18U-3s-lSq" firstAttribute="leading" secondItem="2gy-Kv-TpA" secondAttribute="leading" id="07N-t6-5dq"/>
+                            <constraint firstItem="eiF-TE-DEM" firstAttribute="leading" secondItem="2gy-Kv-TpA" secondAttribute="leadingMargin" id="2mb-tH-Cud"/>
                             <constraint firstItem="viF-b5-Eom" firstAttribute="top" secondItem="eiF-TE-DEM" secondAttribute="bottom" id="4F0-91-LqR"/>
                             <constraint firstAttribute="trailing" secondItem="04J-Eo-b0F" secondAttribute="trailing" id="7tb-1G-L8I"/>
                             <constraint firstAttribute="trailing" secondItem="Nyj-Nb-H4G" secondAttribute="trailing" id="Iqb-80-3p5"/>
                             <constraint firstItem="04J-Eo-b0F" firstAttribute="leading" secondItem="2gy-Kv-TpA" secondAttribute="leading" id="RWT-FP-Bx0"/>
+                            <constraint firstItem="viF-b5-Eom" firstAttribute="top" secondItem="18U-3s-lSq" secondAttribute="bottom" id="TQC-O6-5DV"/>
                             <constraint firstItem="Nyj-Nb-H4G" firstAttribute="leading" secondItem="2gy-Kv-TpA" secondAttribute="leading" id="ZC4-89-nWa"/>
                             <constraint firstItem="Nyj-Nb-H4G" firstAttribute="top" secondItem="gIx-kL-ZKj" secondAttribute="bottom" id="a3e-4d-6mu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eiF-TE-DEM" secondAttribute="trailing" id="fno-4E-gic"/>
                             <constraint firstAttribute="trailing" secondItem="18U-3s-lSq" secondAttribute="trailing" id="kZS-oe-ZQt"/>
                             <constraint firstItem="04J-Eo-b0F" firstAttribute="top" secondItem="Nyj-Nb-H4G" secondAttribute="bottom" constant="5" id="nld-cm-EaH"/>
-                            <constraint firstItem="eiF-TE-DEM" firstAttribute="leading" secondItem="2gy-Kv-TpA" secondAttribute="leadingMargin" id="otb-5K-6TT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="eiF-TE-DEM" secondAttribute="trailing" id="uPY-GX-DO3"/>
-                            <constraint firstItem="viF-b5-Eom" firstAttribute="top" secondItem="18U-3s-lSq" secondAttribute="bottom" constant="10" id="xTl-Rr-OTc"/>
                             <constraint firstItem="18U-3s-lSq" firstAttribute="top" secondItem="04J-Eo-b0F" secondAttribute="bottom" constant="5" id="yzs-iE-UY5"/>
                         </constraints>
                     </view>
@@ -536,14 +538,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y4u-S8-WKZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6077" y="-2411"/>
-        </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="I5Y-Pt-CiZ">
-            <objects>
-                <avPlayerViewController storyboardIdentifier="peekPlayer" videoGravity="AVLayerVideoGravityResize" id="0LJ-Wf-fMX" customClass="PeekPlayerViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NQS-ed-kAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6807" y="-2411"/>
         </scene>
         <!--Picture View Controller-->
         <scene sceneID="OnS-zf-eco">
@@ -672,6 +666,7 @@
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Image to Use" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypj-he-dfG">
                                 <rect key="frame" x="20" y="693.66666666666652" width="374" height="32.333333333333371"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" red="1" green="0.19416478494714617" blue="0.25215423044349994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>

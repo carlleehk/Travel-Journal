@@ -42,6 +42,10 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         previewCollection.allowsMultipleSelection = true
         deleteButton.isHidden = true
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PreviewViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
         //Set up 3D Touch
         if traitCollection.forceTouchCapability != .available {
             registerForPreviewing(with: self, sourceView: view)
@@ -194,7 +198,6 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         if cell?.isSelected == false{
             cell?.alpha = 1.0
         }
-
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
@@ -261,6 +264,11 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         save()
         
         
+    }
+    
+    func dismissKeyboard(){
+        
+        view.endEditing(true)
     }
 
     

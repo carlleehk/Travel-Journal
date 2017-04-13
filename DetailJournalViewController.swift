@@ -11,6 +11,7 @@ import CoreData
 
 class DetailJournalViewController: CoreDataViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var titleItem: UINavigationItem!
     @IBOutlet weak var detailedTable: UITableView!
     
     let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Location")
@@ -21,6 +22,8 @@ class DetailJournalViewController: CoreDataViewController, UITableViewDelegate, 
         
         detailedTable.delegate = self
         detailedTable.dataSource = self
+        
+        titleItem.title = JournalInfo.journalName.journalName!
         
         fr.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
         fr.predicate = NSPredicate(format: "name = %@", argumentArray: [JournalInfo.journalName])

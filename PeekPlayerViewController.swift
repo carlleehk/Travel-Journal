@@ -23,7 +23,6 @@ class PeekPlayerViewController: AVPlayerViewController {
             return
         }
         
-        print(video.videoData)
         let videoURL = URL(string: video.videoData!)
         videoPlayer = AVPlayer(url: videoURL!)
         let playerViewController = AVPlayerViewController()
