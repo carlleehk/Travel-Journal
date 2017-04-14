@@ -11,7 +11,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var searchLocation: UITextField!
@@ -23,6 +23,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var locValue: CLLocationCoordinate2D?
     var newPin = MKPointAnnotation()
     var data = [venue]()
+    var long: Double!
+    var lat: Double!
+    var localTimeZoneName: String {
+        return TimeZone.current.identifier
+    }
+    
+    var messageFrame = UIView()
+    var strLabel = UILabel()
+    var activityIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         
@@ -45,39 +54,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    /*func setUserTracking(){
-     
-     let trackingButton = MKUserTrackingBarButtonItem.init(mapView: map)
-     trackingButton.customView?.sizeThatFits(CGSize(width: 50, height: 50))
-     let originPoint = CGPoint(x: map.frame.width - 70, y: map.frame.height - 70)
-     let roundSquare = UIView(frame: CGRect(origin: originPoint, size: CGSize(width: 50, height: 50)))
-     //let flex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-     //toolbar.items = [flex, trackingButton, flex]
-     map.addSubview(roundSquare)
-     
-     
-     }*/
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         locValue = (manager.location?.coordinate)!
         locationManager.stopUpdatingLocation()
-        
-        performUIUpdateOnMain {
             
-            FourSquareClient.sharedInstance().getVenue(lat: self.locValue!.latitude, long: self.locValue!.longitude, searchString: nil){(success, error) in
+        FourSquareClient.sharedInstance().getVenue(lat: self.locValue!.latitude, long: self.locValue!.longitude, searchString: nil){(success, error) in
                 
+            performUIUpdateOnMain {
                 if (success != nil){
                     self.data = success!
                     self.locationName.reloadData()
                 } else{
-                    print("There is an error: \(error?.localizedDescription)")
+                    print("There is an error: \((error?.localizedDescription)!)")
+                    let alertController = UIAlertController(title: "Error", message: "Network Request Error", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alertController, animated: true, completion: nil)
+
                 }
+                self.messageFrame.removeFromSuperview()
             }
         }
         
@@ -109,6 +104,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
+            progressBarDisplay(msg: "Getting Location", indicator: true)
         }
 
     }
@@ -136,14 +132,34 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         oneVenue.url = info.url
         oneVenue.categories = info.categories
         
-        let coordinate = CLLocationCoordinate2DMake(oneVenue.location?["lat"] as! CLLocationDegrees, oneVenue.location?["lng"] as! CLLocationDegrees)
+        
+        JournalInfo.long = oneVenue.location?["lng"] as! Double
+        JournalInfo.lat = oneVenue.location?["lat"] as! Double
+        JournalInfo.locationName = info.name
+        
+        
+        let coordinate = CLLocationCoordinate2DMake(JournalInfo.lat, JournalInfo.long)
         updateMapPin(location: coordinate)
         
         nextButton.isEnabled = true
         
         firstRun = false
   
-
+    }
+    
+    @IBAction func next(_ sender: Any) {
+        
+        let date = Date()
+        
+        print(JournalInfo.locationName)
+        let journalLocation = Location(lat: JournalInfo.lat, long: JournalInfo.long, name: JournalInfo.locationName, date: date, context: stack.context)
+        journalLocation.name = JournalInfo.journalName
+        print(journalLocation)
+        save()
+        JournalInfo.location = journalLocation
+        let control = storyboard?.instantiateViewController(withIdentifier: "chooseScreen") as! ChooseScreenViewController
+        present(control, animated: true, completion: nil)
+        
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -154,27 +170,32 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         let search = searchLocation.text
         textField.resignFirstResponder()
+        progressBarDisplay(msg: "Getting Location", indicator: true)
         
-        performUIUpdateOnMain {
-            
-            FourSquareClient.sharedInstance().getVenue(lat: nil, long: nil, searchString: search){(success, error) in
+        FourSquareClient.sharedInstance().getVenue(lat: nil, long: nil, searchString: search){(success, error) in
                 
-                if (success != nil){
-                    self.data = success!
-                    self.locationName.reloadData()
-                } else{
-                    
-                    let alertController = UIAlertController(title: "Error", message: "Location not found, please retype another location for searching", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alertController, animated: true, completion: nil)
-                    textField.text = ""
-                    
-                }
+                performUIUpdateOnMain {
+                    if (success != nil){
+                        self.data = success!
+                        self.locationName.reloadData()
+                    } else{
+                        
+                        let alertController = UIAlertController(title: "Error", message: "Location not found, please retype another location for searching", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(alertController, animated: true, completion: nil)
+                        textField.text = ""
+                        
+                    }
+                    self.messageFrame.removeFromSuperview()
             }
         }
+                
         return true
     }
     
+    @IBAction func dismiss(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
    //Function to setup keyboard appear location
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
@@ -194,16 +215,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
     }
+    
+    func progressBarDisplay(msg: String, indicator: Bool){
+        
+        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 240, height: 50))
+        strLabel.text = msg
+        strLabel.textColor = UIColor.white
+        messageFrame = UIView(frame: CGRect(x: view.frame.midX  - 110, y: view.frame.midY - 25, width: 200, height: 50))
+        messageFrame.layer.cornerRadius = 15
+        messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
+        if indicator {
+            activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
+            activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+            activityIndicator.startAnimating()
+            messageFrame.addSubview(activityIndicator)
+        }
+        
+        messageFrame.addSubview(strLabel)
+        view.addSubview(messageFrame)
+        
+    }
 
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

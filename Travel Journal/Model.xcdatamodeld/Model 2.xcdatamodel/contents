@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DetailedJournal" representedClassName="DetailedJournal" syncable="YES">
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="videoData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="detailedJournal" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="lat" optional="YES" attributeType="Double" minValueString="-90" maxValueString="90" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="long" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="detailedJournal" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DetailedJournal" inverseName="location" inverseEntity="DetailedJournal" syncable="YES"/>
+        <relationship name="name" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Name" inverseName="location" inverseEntity="Name" syncable="YES"/>
+    </entity>
+    <entity name="Name" representedClassName="Name" syncable="YES">
+        <attribute name="journalName" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="location" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Location" inverseName="name" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DetailedJournal" positionX="-36" positionY="27" width="128" height="105"/>
+        <element name="Location" positionX="-54" positionY="0" width="128" height="105"/>
+        <element name="Name" positionX="-63" positionY="-18" width="128" height="75"/>
+    </elements>
+</model>
