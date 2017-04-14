@@ -86,6 +86,7 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         
         let selectedItems = previewCollection.indexPathsForSelectedItems
         
+        
         deleteButton.isHidden = true
         
         for indexPath in selectedItems!{
@@ -106,6 +107,7 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fr3, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
         frc3 = fetchedResultsController
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -130,20 +132,19 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         
         let frc2c = frc2.fetchedObjects?.count
         let frc3c = frc3.fetchedObjects?.count
-
         
         if section == 0{
-            if frc2c == 0{
-                return 1
-            } else{
+            //if frc2c == 0{
+            //    return 1
+            //} else{
                 return frc2c!
-            }
+            //}
         } else if section == 1{
-            if frc3c == 0{
-                return 1
-            } else{
+           // if frc3c == 0{
+           //     return 1
+            //} else{
                 return frc3c!
-            }
+            //}
         }
         return 0
     }
@@ -174,11 +175,11 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
                 let imageView = UIImageView(image: image)
                 cell.backgroundView = imageView
                 return cell
-            } else{
+            /*} else{
                 let image = UIImage(named: "notAvaliable")
                 let imageView = UIImageView(image: image)
                 cell.backgroundView = imageView
-                return cell
+                return cell*/
             }
         }else if indexPath.section == 1{
             if frc3c != 0{
@@ -187,11 +188,11 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
                 let imageView = UIImageView(image: image)
                 cell.backgroundView = imageView
                 return cell
-            } else{
+            /*} else{
                 let image = UIImage(named: "notAvaliable")
                 let imageView = UIImageView(image: image)
                 cell.backgroundView = imageView
-                return cell
+                return cell*/
             }
         }
         
@@ -365,16 +366,6 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
 
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 
@@ -402,6 +393,9 @@ extension PreviewViewController{
     
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
+        
+        
         previewCollection.performBatchUpdates({
             for indexPath in self.insertedIndexPath{
                 self.previewCollection.insertItems(at: [indexPath as IndexPath])

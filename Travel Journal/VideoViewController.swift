@@ -12,17 +12,6 @@ import MobileCoreServices
 
 class VideoViewController: ChooseScreenViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func takingVideo(_ sender: Any) {
         if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
             let alertController = UIAlertController(title: "Error", message: "Video Camera is not avaliable for use, please choose other sosurce.", preferredStyle: .alert)
@@ -71,14 +60,8 @@ class VideoViewController: ChooseScreenViewController, UIImagePickerControllerDe
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyMMDDhhmmss"
                 let str = dateFormatter.string(from: date)
-
-                /*let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd, hh:mm:ss"
-                dateFormatter.timeZone = TimeZone(abbreviation: "PCT")
-                let str = dateFormatter.string(from: date)*/
                 
                 let outputURL = paths.appendingPathComponent("movie\(str).mov")
-                //JournalInfo.runTime = JournalInfo.runTime + 1
                 
                 try video.write(to: outputURL!)
                 
@@ -104,14 +87,5 @@ class VideoViewController: ChooseScreenViewController, UIImagePickerControllerDe
     @IBAction func dismiss(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
 }

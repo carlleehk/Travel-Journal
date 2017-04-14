@@ -30,10 +30,7 @@ class PeekViewViewController: CoreDataViewController {
         if let video = video{
             image.image = UIImage(data: video.videoPhoto!)
         }
-        
-        
-
-        // Do any additional setup after loading the view.
+    
     }
 
     override var previewActionItems: [UIPreviewActionItem]{
@@ -59,11 +56,6 @@ class PeekViewViewController: CoreDataViewController {
                     return
                 }
                 
-                /*let control = self.storyboard?.instantiateViewController(withIdentifier: "peekPlayer") as! PeekPlayerViewController
-                control.video = self.video
-                control.initiatingPreviewActionController = initiatingPreviewActionController
-                initiatingPreviewActionController.present(control, animated: true, completion: nil)*/
-                
                 let videoURL = URL(string: (self.video?.videoData)!)
                 let player = AVPlayer(url: videoURL!)
                 let playerViewController = AVPlayerViewController()
@@ -80,9 +72,9 @@ class PeekViewViewController: CoreDataViewController {
         
     }
 
-    @IBAction func dismiss(_ sender: Any) {
+    /*@IBAction func dismiss(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
+    }*/
     /*
     // MARK: - Navigation
 

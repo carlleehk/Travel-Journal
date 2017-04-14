@@ -15,7 +15,6 @@ struct JournalInfo{
     static var locationName: String!
     static var journalName: Name!
     static var location: Location!
-    static var runTime: Int! = 0
     static var firstRun: Bool!
     
 }

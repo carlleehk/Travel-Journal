@@ -54,24 +54,6 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    /*func setUserTracking(){
-     
-     let trackingButton = MKUserTrackingBarButtonItem.init(mapView: map)
-     trackingButton.customView?.sizeThatFits(CGSize(width: 50, height: 50))
-     let originPoint = CGPoint(x: map.frame.width - 70, y: map.frame.height - 70)
-     let roundSquare = UIView(frame: CGRect(origin: originPoint, size: CGSize(width: 50, height: 50)))
-     //let flex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-     //toolbar.items = [flex, trackingButton, flex]
-     map.addSubview(roundSquare)
-     
-     
-     }*/
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         locValue = (manager.location?.coordinate)!
@@ -152,8 +134,6 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         
         
         JournalInfo.long = oneVenue.location?["lng"] as! Double
-        
-        //long = oneVenue.location?["lng"] as! Double
         JournalInfo.lat = oneVenue.location?["lat"] as! Double
         JournalInfo.locationName = info.name
         
@@ -213,6 +193,9 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         return true
     }
     
+    @IBAction func dismiss(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
    //Function to setup keyboard appear location
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
@@ -232,14 +215,6 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
             }
         }
     }
-    
-    /*func getDate() -> Date{
-        
-        let date = Date()
-        
-        return date
-        
-    }*/
     
     func progressBarDisplay(msg: String, indicator: Bool){
         
@@ -261,16 +236,4 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         
     }
 
-
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

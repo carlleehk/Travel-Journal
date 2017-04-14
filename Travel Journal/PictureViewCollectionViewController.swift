@@ -22,9 +22,6 @@ class PictureViewCollectionViewController: ChooseScreenViewController, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         // Register cell classes
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -35,8 +32,6 @@ class PictureViewCollectionViewController: ChooseScreenViewController, UICollect
         
         collectionView.allowsMultipleSelection = true
 
-        // Do any additional setup after loading the view.
-        
         let space: CGFloat = 1.5
         let dimension = view.frame.size.width >= view.frame.size.height ? (view.frame.size.width - (5 * space)) / 6.0 : (view.frame.size.width - (2*space))/3.0
         FlickRFlow.minimumInteritemSpacing = space
@@ -44,14 +39,7 @@ class PictureViewCollectionViewController: ChooseScreenViewController, UICollect
         FlickRFlow.itemSize = CGSize(width: dimension, height: dimension)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        print("...")
         return imageAddress.count
     }
 
@@ -64,7 +52,6 @@ class PictureViewCollectionViewController: ChooseScreenViewController, UICollect
         let imageView = UIImageView(image: image)
         cell.backgroundView = imageView
         return cell
-        // Configure the cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -142,10 +129,10 @@ class PictureViewCollectionViewController: ChooseScreenViewController, UICollect
             let imageData = Photo(photo: data!, context: stack.context)
             imageData.location = JournalInfo.location
             print(imageData)
-            save()
+            
             
         }
-        
+        save()
         dismiss(animated: true, completion: nil)
     }
 
