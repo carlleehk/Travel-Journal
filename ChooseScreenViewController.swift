@@ -10,5 +10,9 @@ import UIKit
 
 class ChooseScreenViewController: CoreDataViewController {
     
+    @IBAction func preview(_ sender: Any) {
+        let control = storyboard?.instantiateViewController(withIdentifier: "preview") as! PreviewViewController
+        present(control, animated: true, completion: nil)
+    }
     
 }

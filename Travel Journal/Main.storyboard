@@ -13,7 +13,7 @@
         <!--Journal Table View Controller-->
         <scene sceneID="fMv-3s-TFY">
             <objects>
-                <viewController id="X04-vq-gOF" customClass="JournalTableViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="primaryView" id="X04-vq-gOF" customClass="JournalTableViewController" customModule="Travel_Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vwv-aS-7u8"/>
                         <viewControllerLayoutGuide type="bottom" id="weo-gc-Dfp"/>
@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="crf-uL-Hv3" id="H4k-6h-gOI">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -101,7 +101,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z7F-6g-oh4" id="0ft-Xf-aqp">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -214,7 +214,7 @@
                                     <navigationItem id="Avs-mO-B7G">
                                         <barButtonItem key="rightBarButtonItem" title="Preview" id="Exd-PM-Ucf">
                                             <connections>
-                                                <segue destination="v9w-N1-36d" kind="show" id="I0i-4H-z0A"/>
+                                                <action selector="preview:" destination="hNN-Kd-POS" id="OTZ-5a-hEb"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -236,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6GV-FP-Dgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3714" y="-638"/>
+            <point key="canvasLocation" x="3712" y="-638"/>
         </scene>
         <!--Text Editor View Controller-->
         <scene sceneID="lF4-PG-6Rq">
@@ -287,7 +287,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xEu-iZ-yLJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4463.768115942029" y="476.9021739130435"/>
+            <point key="canvasLocation" x="4619" y="598"/>
         </scene>
         <!--Detail Journal View Controller-->
         <scene sceneID="k1j-sU-Z7R">
@@ -307,12 +307,12 @@
                                     <navigationItem title="Title" id="toR-Tv-d06">
                                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="NwQ-RY-Xpj">
                                             <connections>
-                                                <segue destination="MJE-f7-sd2" kind="show" id="Kxu-S6-QgC"/>
+                                                <action selector="presentMap:" destination="eY9-7z-UXB" id="W4O-we-SB3"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="I37-xr-emu">
                                             <connections>
-                                                <segue destination="X04-vq-gOF" kind="show" id="YxG-dl-3dr"/>
+                                                <action selector="dismiss:" destination="eY9-7z-UXB" id="DLB-iP-rjp"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -326,18 +326,18 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nob-5A-ULa" id="Klg-W8-Sdc">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kMR-3J-hLd">
-                                                    <rect key="frame" x="15" y="5" width="33.333333333333336" height="20.333333333333332"/>
+                                                    <rect key="frame" x="15" y="4" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JoI-IX-ESP">
-                                                    <rect key="frame" x="15" y="25.333333333333332" width="32.666666666666664" height="14.333333333333334"/>
+                                                    <rect key="frame" x="15" y="25" width="33" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -392,7 +392,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="2tj-8B-nCk">
                                             <connections>
-                                                <segue destination="eY9-7z-UXB" kind="show" id="RSH-uB-isV"/>
+                                                <action selector="presentDetail:" destination="v9w-N1-36d" id="f3B-7v-z8V"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -504,7 +504,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B0c-8r-zT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4618.840579710145" y="-1890.4891304347827"/>
+            <point key="canvasLocation" x="4619" y="-2035"/>
         </scene>
         <!--peekView-->
         <scene sceneID="HG1-eC-wdZ">
@@ -537,7 +537,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y4u-S8-WKZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6077" y="-2411"/>
+            <point key="canvasLocation" x="5374" y="-2036"/>
         </scene>
         <!--Picture View Controller-->
         <scene sceneID="OnS-zf-eco">
@@ -609,7 +609,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HAv-Vi-v6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4465" y="-1084"/>
+            <point key="canvasLocation" x="4619" y="-1002"/>
         </scene>
         <!--Picture View Collection View Controller-->
         <scene sceneID="OfU-pN-30q">
@@ -636,7 +636,7 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ibc-V3-9Gf">
-                                <rect key="frame" x="0.0" y="74" width="414" height="609.66666666666663"/>
+                                <rect key="frame" x="0.0" y="74" width="414" height="624"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6jo-73-RaR">
                                     <size key="itemSize" width="50" height="50"/>
@@ -664,10 +664,10 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Image to Use" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypj-he-dfG">
-                                <rect key="frame" x="20" y="693.66666666666652" width="374" height="32.333333333333371"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Image to Use" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypj-he-dfG">
+                                <rect key="frame" x="20" y="708" width="374" height="18"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="0.19416478494714617" blue="0.25215423044349994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -694,7 +694,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uyR-zU-RQ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5202.898550724638" y="-1084.2391304347827"/>
+            <point key="canvasLocation" x="5374" y="-1003"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="t9q-ew-Zar">
@@ -753,7 +753,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40b-5c-4lw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4465" y="-420"/>
+            <point key="canvasLocation" x="4619" y="-296"/>
         </scene>
     </scenes>
     <resources>

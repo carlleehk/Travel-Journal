@@ -40,11 +40,13 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         journalText.delegate = self
         
         previewCollection.allowsMultipleSelection = true
-        deleteButton.isHidden = true
+        
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PreviewViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+        
+        
         
         //Set up 3D Touch
         if traitCollection.forceTouchCapability != .available {
@@ -60,17 +62,6 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fr1, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
         frc1 = fetchedResultsController
         
-        fr2.sortDescriptors = []
-        fr2.predicate = NSPredicate(format: "location = %@", argumentArray: [JournalInfo.location])
-        
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fr2, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
-        frc2 = fetchedResultsController
-        
-        fr3.sortDescriptors = []
-        fr3.predicate = NSPredicate(format: "location = %@", argumentArray: [JournalInfo.location])
-        
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fr3, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
-        frc3 = fetchedResultsController
         
         if frc1.fetchedObjects?.count == 0 {
             journalText.text = "No note had been created"
@@ -89,6 +80,34 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
         layOut.itemSize = CGSize(width: dimension, height: dimension)
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let selectedItems = previewCollection.indexPathsForSelectedItems
+        
+        deleteButton.isHidden = true
+        
+        for indexPath in selectedItems!{
+            
+            let cell = previewCollection.cellForItem(at: indexPath)
+            cell?.alpha = 1.0
+            previewCollection.deselectItem(at: indexPath, animated: false)
+        }
+        
+        fr2.sortDescriptors = []
+        fr2.predicate = NSPredicate(format: "location = %@", argumentArray: [JournalInfo.location])
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fr2, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
+        frc2 = fetchedResultsController
+                        
+        fr3.sortDescriptors = []
+        fr3.predicate = NSPredicate(format: "location = %@", argumentArray: [JournalInfo.location])
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fr3, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
+        frc3 = fetchedResultsController
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -100,13 +119,9 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
             // Clear the `alertController` to ensure it's not presented multiple times.
             self.alert = nil
         }
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -187,6 +202,7 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         deleteButton.isHidden = false
+        print("\(indexPath.section),\(indexPath.row)")
         let cell = collectionView.cellForItem(at: indexPath)
         if cell?.isSelected == true{
             cell?.alpha = 0.5
@@ -245,7 +261,6 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         
         //no popping action for this project
-        //show(viewControllerToCommit, sender: self)
         
     }
     
@@ -320,10 +335,8 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
                 } else if indexPath.section == 1{
                     self.stack.context.delete(self.frc3.object(at: IndexPath(row: indexPath.row, section: 0)) as! Video)
                 }
-                self.save()
-                
             }
-        
+            self.save()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {(_) in
@@ -340,6 +353,17 @@ class PreviewViewController: CoreDataViewController, UICollectionViewDelegate, U
 
     }
   
+    @IBAction func presentDetail(_ sender: Any) {
+        
+        print(JournalInfo.firstRun)
+        if JournalInfo.firstRun {
+            let control = storyboard?.instantiateViewController(withIdentifier: "detailJournal") as! DetailJournalViewController
+            present(control, animated: true, completion: nil)
+        } else{
+            dismiss(animated: true, completion: nil)
+        }
+
+    }
     
     /*
     // MARK: - Navigation

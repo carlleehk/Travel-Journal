@@ -65,8 +65,20 @@ class VideoViewController: ChooseScreenViewController, UIImagePickerControllerDe
                 
                 let video = try Data(contentsOf: videoURL, options: .mappedIfSafe)
                 let paths = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
-                let outputURL = paths.appendingPathComponent("movie\(JournalInfo.runTime!).mov")
-                JournalInfo.runTime = JournalInfo.runTime + 1
+                
+                //Get the current time for use
+                let date = Date()
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyMMDDhhmmss"
+                let str = dateFormatter.string(from: date)
+
+                /*let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd, hh:mm:ss"
+                dateFormatter.timeZone = TimeZone(abbreviation: "PCT")
+                let str = dateFormatter.string(from: date)*/
+                
+                let outputURL = paths.appendingPathComponent("movie\(str).mov")
+                //JournalInfo.runTime = JournalInfo.runTime + 1
                 
                 try video.write(to: outputURL!)
                 

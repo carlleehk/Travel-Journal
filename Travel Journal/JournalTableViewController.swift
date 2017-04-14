@@ -62,6 +62,7 @@ class JournalTableViewController: CoreDataViewController, UITableViewDelegate, U
         let viewAction = UIAlertAction(title: "View", style: .default){(_) in
             
             let control = self.storyboard?.instantiateViewController(withIdentifier: "detailJournal") as! DetailJournalViewController
+            JournalInfo.firstRun = false
             
             JournalInfo.journalName = info
             self.present(control, animated: true, completion: nil)
@@ -115,6 +116,7 @@ class JournalTableViewController: CoreDataViewController, UITableViewDelegate, U
                         JournalInfo.journalName = nl
                         self.save()
                         let control = self.storyboard?.instantiateViewController(withIdentifier: "map") as! MapViewController
+                        JournalInfo.firstRun = true
                         self.present(control, animated: true, completion: nil)
 
                     } else{

@@ -32,12 +32,7 @@ class DetailJournalViewController: CoreDataViewController, UITableViewDelegate, 
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-       
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if let fc = fetchedResultsController{
@@ -58,28 +53,20 @@ class DetailJournalViewController: CoreDataViewController, UITableViewDelegate, 
         let cell = tableView.dequeueReusableCell(withIdentifier: "detail", for: indexPath)
         
         //SYNC NOTEBOOK -> CELL
+        let date = dateFormatter(date: nb.creationDate!)
         cell.textLabel?.text = nb.locationName
-        cell.detailTextLabel?.text = nb.creationDate?.description
+        cell.detailTextLabel?.text = date
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        /*let nb = fetchedResultsController?.object(at: indexPath) as! Location
-        JournalInfo.location = nb
-        JournalInfo.lat = nb.lat
-        JournalInfo.long = nb.long*/
-        
-        
-        
         let cell = tableView.cellForRow(at: indexPath)
         let nb = fetchedResultsController?.object(at: indexPath) as! Location
         JournalInfo.location = nb
         JournalInfo.lat = nb.lat
         JournalInfo.long = nb.long
-        
-        
         
         let alertController = UIAlertController(title: nil, message: "Select the action you wanted to perform for \((cell?.textLabel?.text)!)", preferredStyle: .alert)
         let viewAction = UIAlertAction(title: "View", style: .default){(_) in
@@ -111,7 +98,26 @@ class DetailJournalViewController: CoreDataViewController, UITableViewDelegate, 
         
     }
     
+    @IBAction func presentMap(_ sender: Any) {
+        let control = storyboard?.instantiateViewController(withIdentifier: "map") as! MapViewController
+        JournalInfo.firstRun = true
+        present(control, animated: true, completion: nil)
+    }
 
+    @IBAction func dismiss(_ sender: Any) {
+        
+        view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func dateFormatter(date: Date) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd, hh:mm:ss"
+        let str = dateFormatter.string(from: date)
+        return str
+        
+    }
 
 
     /*

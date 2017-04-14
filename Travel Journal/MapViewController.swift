@@ -169,7 +169,7 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
     
     @IBAction func next(_ sender: Any) {
         
-        let date = getDate()
+        let date = Date()
         
         print(JournalInfo.locationName)
         let journalLocation = Location(lat: JournalInfo.lat, long: JournalInfo.long, name: JournalInfo.locationName, date: date, context: stack.context)
@@ -233,13 +233,13 @@ class MapViewController: CoreDataViewController, MKMapViewDelegate, CLLocationMa
         }
     }
     
-    func getDate() -> Date{
+    /*func getDate() -> Date{
         
         let date = Date()
         
         return date
         
-    }
+    }*/
     
     func progressBarDisplay(msg: String, indicator: Bool){
         
